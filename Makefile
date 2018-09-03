@@ -1,9 +1,11 @@
 CC=g++
 EXEC=app
-FLAGS=-lsfml-window -lsfml-system -lGL
+FLAGS=-Wall -lsfml-window -lsfml-system -lGL -lGLEW
+TARGET=main.cpp
+INCS=-I /usr/include
 
 build:
-	$(CC) main.cpp -o $(EXEC) $(FLAGS)
+	$(CC) $(TARGET) -o $(EXEC) $(FLAGS)
 
 run:
 	./app
