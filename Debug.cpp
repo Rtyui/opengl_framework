@@ -3,6 +3,21 @@
 #include <cstdarg>
 #include <iostream>
 
+Debug *debug = NULL;
+
+Debug::Debug()
+{
+    if(debug != NULL)
+    {
+        std::cerr << "Already created singleton for Debug. Duplicates not allowed" << std::endl;
+    }
+    debug = this;
+}
+
+Debug::~Debug()
+{
+}
+
 void Debug::Log(const char *fmt, ...)
 {
     va_list args;

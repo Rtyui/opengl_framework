@@ -4,6 +4,8 @@
 
 #include "Stdincl.hpp"
 #include "Shader.hpp"
+#include "Loader.hpp"
+#include "Renderer.hpp"
 
 sf::Window* GetInitializedWindow()
 {
@@ -19,6 +21,13 @@ sf::Window* GetInitializedWindow()
 
 }
 
+void CallContructorsForSingletons()
+{
+    Debug();
+    Loader();
+    Renderer();
+}
+
 int main()
 {
     bool running = true;
@@ -28,33 +37,35 @@ int main()
     glewExperimental = GL_TRUE;
     glewInit();
 
-    float vertices[] = {
-     0.0f,  0.5f, 1.0f, 0.0f, 0.0f, // Vertex 1: Red
-     0.5f, -0.5f, 0.0f, 1.0f, 0.0f, // Vertex 2: Green
-    -0.5f, -0.5f, 0.0f, 0.0f, 1.0f  // Vertex 3: Blue
+    CallContructorsForSingletons();
+
+    // float vertices[] = {
+    //     -0.5f,  0.5f, 1.0f, 0.0f, 0.0f, // Top-left
+    //     0.5f,  0.5f, 0.0f, 1.0f, 0.0f, // Top-right
+    //     0.5f, -0.5f, 0.0f, 0.0f, 1.0f, // Bottom-right
+    //     -0.5f, -0.5f, 1.0f, 1.0f, 1.0f  // Bottom-left
+    // };
+    std::vector<float> vertices = {
+        -0.5f, 0.5f, 0.f,
+        -0.5f, -0.5f, 0.f,
+        0.5f, -0.5f, 0.f,
+        0.5f, -0.5f, 0.f,
+        0.5f, 0.5f, 0.f,
+        -0.5f, 0.5f, 0.f
     };
 
     GLuint elements[] = {
-        0, 1, 2
+        0, 1, 2,
+        2, 3, 0
     };
 
-    GLuint vao;
-    glGenVertexArrays(1, &vao);
+    debug->Log("Works till here");
 
-    glBindVertexArray(vao);
+    //Shader *shader = new Shader();
+    RawModel *model = loader->CreateRawModel(vertices);
 
-    GLuint vbo;
-    glGenBuffers(1, &vbo);
+    debug->Log("Works till there");
 
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-    GLuint ebo;
-    glGenBuffers(1, &ebo);
-    
-
-    Shader *shader = new Shader();
-    Debug::Log("Created shaders");
 
     sf::Event windowEvent;
     while(running)
@@ -77,14 +88,15 @@ int main()
             }
         }
 
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        renderer->ClearWindow();
+        renderer->Render(model);
+
         window->display();
     }
 
-    delete shader;
-    glDeleteBuffers(1, &vbo);
-    glDeleteVertexArrays(1, &vao);
+    //delete shader;
+    delete loader;
+    delete renderer;
+    delete debug;
     return 0;
 }

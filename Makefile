@@ -1,7 +1,7 @@
 CC=g++
 EXEC=app
 FLAGS=-Wall -lsfml-window -lsfml-system -lGL -lGLEW
-TARGET=main.cpp Shader.cpp Debug.cpp
+TARGET=*.cpp
 INCS=-I /usr/include
 
 build:

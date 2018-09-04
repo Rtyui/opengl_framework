@@ -7,5 +7,10 @@ class Debug
 {
 public:
 
-    static void Log(const char *fmt, ...);
+    Debug();
+    ~Debug();
+
+    void Log(const char *fmt, ...);     ///< Function that prints out a string format
 };
+
+extern Debug* debug;                    ///< Debug global singleton instance
