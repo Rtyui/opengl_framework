@@ -67,8 +67,6 @@ void Shader::CreateProgram()
     //glBindFragDataLocation(programId, 0, "outColor");
     glLinkProgram(programId);
 
-    Activate();
-
     Debug::Log("Created Program");
 }
 
@@ -96,18 +94,16 @@ void Shader::CompileShaders()
 
 void Shader::CreateAttribs()
 {
+    Activate();
+
     // Get attribute location
     GLint posAttrib = glGetAttribLocation(programId, "position");
-    
-    // Assign attribute
-    glVertexAttribPointer(posAttrib, 2, GL_FLOAT, GL_FALSE, 0, 0);
-
-    // Enable vertex attribute array
     glEnableVertexAttribArray(posAttrib);
+    glVertexAttribPointer(posAttrib, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), 0);
 
-    GLint uniColor = glGetUniformLocation(programId, "triangleColor");
-    glUniform3f(uniColor, 1.0f, 0.0f, 0.0f);
-    
+    GLint colAttrib = glGetAttribLocation(programId, "color");
+    glEnableVertexAttribArray(colAttrib);
+    glVertexAttribPointer(colAttrib, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(2 * sizeof(float)));
 
     Debug::Log("Created Attribs");
 }

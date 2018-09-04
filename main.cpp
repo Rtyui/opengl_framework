@@ -29,9 +29,13 @@ int main()
     glewInit();
 
     float vertices[] = {
-        0.0f,  0.5f, // Vertex 1 (X, Y)
-        0.5f, -0.5f, // Vertex 2 (X, Y)
-        -0.5f, -0.5f  // Vertex 3 (X, Y)
+     0.0f,  0.5f, 1.0f, 0.0f, 0.0f, // Vertex 1: Red
+     0.5f, -0.5f, 0.0f, 1.0f, 0.0f, // Vertex 2: Green
+    -0.5f, -0.5f, 0.0f, 0.0f, 1.0f  // Vertex 3: Blue
+    };
+
+    GLuint elements[] = {
+        0, 1, 2
     };
 
     GLuint vao;
@@ -44,6 +48,10 @@ int main()
 
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+    GLuint ebo;
+    glGenBuffers(1, &ebo);
+    
 
     Shader *shader = new Shader();
     Debug::Log("Created shaders");
