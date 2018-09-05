@@ -78,14 +78,11 @@ void Shader::CompileShaders()
 
         if(status != GL_TRUE)
         {
-            log("Bad status for shader %d", shaderId);
             char buffer[512];
             glGetShaderInfoLog(shaderId, sizeof(buffer), NULL, buffer);
-            log(buffer);
             exit(0);
         }
     }
-    log("Compiled Shaders");
 }
 
 void Shader::BindAttributes()

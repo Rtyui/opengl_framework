@@ -35,6 +35,7 @@
         "utility": "cpp",
         "ctime": "cpp",
         "deque": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "iomanip": "cpp"
     }
 }

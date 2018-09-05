@@ -58,7 +58,10 @@ int main()
     Texture *texture = new Texture(g_loader->LoadTexture("browser.png"));
     TexturedModel *texturedModel = new TexturedModel(model, texture);
 
-    log("model id: %d, model vertices: %d", model->m_vaoId, model->m_vertexCount);
+    // log(I, "model id: %d, model vertices: %d", model->m_vaoId, model->m_vertexCount);
+    log (I, "This is an info log");
+    log (W, "This is an warning log");
+    log (E, "This is an error log");
 
     sf::Event windowEvent;
     while(running)
