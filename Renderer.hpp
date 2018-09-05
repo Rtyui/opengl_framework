@@ -1,5 +1,5 @@
 #pragma once
-#include "RawModel.hpp"
+#include "TexturedModel.hpp"
 
 class Renderer
 {
@@ -7,11 +7,14 @@ class Renderer
 
 
 // Methods
+private:
+                    Renderer();
+
 public:
-            Renderer();
-            ~Renderer();
-            void ClearWindow();
-            void Render(RawModel *rawModel);
+                    ~Renderer();
+    void            ClearWindow();
+    void            Render(TexturedModel* texturedModel);
+    static void     Instantiate();
 };
 
-extern Renderer *renderer;
+extern Renderer*    g_renderer;

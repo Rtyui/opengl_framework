@@ -1,11 +1,11 @@
 
-#include "Stdincl.hpp"
+#include "Debug.hpp"
 #include "RawModel.hpp"
 
-RawModel::RawModel(GLuint _vaoId, int _vertexCount)
+RawModel::RawModel(GLuint vaoId, int vertexCount)
 {
-    vaoId = _vaoId;
-    vertexCount = _vertexCount;
+    m_vaoId = vaoId;
+    m_vertexCount = vertexCount;
 }
 
 RawModel::~RawModel()

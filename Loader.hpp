@@ -2,6 +2,7 @@
 #include <vector>
 #include <GL/glew.h>
 #include "RawModel.hpp"
+#include <string>
 
 class Loader
 {
@@ -11,24 +12,28 @@ public:
 
 private:
 
-    std::vector<GLuint>     vaos;
-    std::vector<GLuint>     vbos;
+    std::vector<GLuint>     m_vaos;
+    std::vector<GLuint>     m_vbos;
+    std::vector<GLuint>     m_textures;
 
 
 
 // Methods
 public:
 
-    Loader();
-    ~Loader();
+                            ~Loader();
 
-    RawModel*               CreateRawModel(std::vector<float> positions);
+    RawModel*               CreateRawModel(const std::vector<float> &positions, const std::vector<int> &indices);
+    GLuint                  LoadTexture(const std::string &filename);
+    static void             Instantiate();
 
 private:
 
+                            Loader();
     GLuint                  GetNewVaoId();
-    void                    StoreDataInAttributeList(int attributeNumber, std::vector<float> data);
+    void                    StoreDataInAttributeList(int attributeNumber, const std::vector<float> &data);
+    void                    BindIndicesBuffer(const std::vector<int> &indices);
 
 };
 
-extern Loader *loader;
+extern Loader*              g_loader;

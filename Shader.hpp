@@ -11,9 +11,9 @@ private:
     std::string vertexShaderFile = "vertex_shader";
     std::string fragmentShaderFile = "fragment_shader";
 
-    GLuint vertexShaderId;
-    GLuint fragmentShaderId;
-    GLuint programId;
+    GLuint m_vertexShaderId;
+    GLuint m_fragmentShaderId;
+    GLuint m_programId;
 
 public:
 
@@ -24,15 +24,20 @@ public:
 
 public:
 
-    Shader();
-    ~Shader();
+                            Shader(const std::string &vertexShaderFile, const std::string &fragmentShaderFile);
+    virtual                 ~Shader();
 
-    void Activate();
+    void                    Activate();
+    void                    Deactivate();
 
 private:
 
-    void CreateProgram();
-    void CompileShaders();
-    void CreateAttribs();
+    void                    CreateProgram(const std::string &vertexShaderFile, const std::string &fragmentShaderFile);
+    void                    CompileShaders();
+    void                    CreateAttribs();
+
+protected:
+    virtual void            BindAttributes();
+    void                    BindAttribute(int attribute, const std::string &variableName);
 
 };

@@ -7,12 +7,12 @@ class RawModel
 // Members
 public:
 
-    GLuint      vaoId;
-    int         vertexCount;
+    GLuint      m_vaoId;
+    int         m_vertexCount;
 
 //Methods
 public:
 
-                RawModel(GLuint _vaoId, int _vertexCount);
+                RawModel(GLuint vaoId, int vertexCount);
                 ~RawModel();
 };

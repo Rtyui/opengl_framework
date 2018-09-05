@@ -1,16 +1,11 @@
 #include "Renderer.hpp"
-#include "Stdincl.hpp"
+#include "Debug.hpp"
 #include <GL/glew.h>
 
-Renderer *renderer = NULL;
+Renderer* g_renderer = NULL;
 
 Renderer::Renderer()
 {
-    if(renderer != NULL)
-    {
-        std::cerr << "Already created singleton for Renderer. Duplicates not allowed" << std::endl;
-    }
-    renderer = this;
 }
 
 Renderer::~Renderer()
@@ -23,9 +18,21 @@ void Renderer::ClearWindow()
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Renderer::Render(RawModel *rawModel)
+void Renderer::Render(TexturedModel* texturedModel)
 {
-    glBindVertexArray(rawModel->vaoId);
+    RawModel *rawModel = texturedModel->m_rawModel;
+    glBindVertexArray(rawModel->m_vaoId);
     glEnableVertexAttribArray(0);
-    glDrawArrays(GL_TRIANGLES, 0, rawModel->vertexCount);
+    glDrawElements(GL_TRIANGLES, rawModel->m_vertexCount, GL_UNSIGNED_INT, 0);
+    glDisableVertexAttribArray(0);
+    glBindVertexArray(0);
+}
+
+void Renderer::Instantiate()
+{
+    if(g_renderer != NULL)
+    {
+        std::cerr << "Double instantiation not allowed" << std::endl;
+    }
+    g_renderer = new Renderer();
 }

@@ -2,10 +2,13 @@
 #include <SFML/Window.hpp>
 #include <GL/glew.h>
 
-#include "Stdincl.hpp"
+#include "Debug.hpp"
 #include "Shader.hpp"
 #include "Loader.hpp"
 #include "Renderer.hpp"
+#include "StaticShader.hpp"
+#include "Texture.hpp"
+#include "TexturedModel.hpp"
 
 sf::Window* GetInitializedWindow()
 {
@@ -23,9 +26,9 @@ sf::Window* GetInitializedWindow()
 
 void CallContructorsForSingletons()
 {
-    Debug();
-    Loader();
-    Renderer();
+    Debug::Instantiate();
+    Loader::Instantiate();
+    Renderer::Instantiate();
 }
 
 int main()
@@ -39,33 +42,23 @@ int main()
 
     CallContructorsForSingletons();
 
-    // float vertices[] = {
-    //     -0.5f,  0.5f, 1.0f, 0.0f, 0.0f, // Top-left
-    //     0.5f,  0.5f, 0.0f, 1.0f, 0.0f, // Top-right
-    //     0.5f, -0.5f, 0.0f, 0.0f, 1.0f, // Bottom-right
-    //     -0.5f, -0.5f, 1.0f, 1.0f, 1.0f  // Bottom-left
-    // };
-    std::vector<float> vertices = {
-        -0.5f, 0.5f, 0.f,
-        -0.5f, -0.5f, 0.f,
-        0.5f, -0.5f, 0.f,
-        0.5f, -0.5f, 0.f,
-        0.5f, 0.5f, 0.f,
-        -0.5f, 0.5f, 0.f
-    };
+    std::vector<float> vertices({
+        -0.5f, 0.5f, 0,
+        -0.5f, -0.5f, 0,
+        0.5f, -0.5f, 0,
+        0.5f, 0.5f, 0
+    });
+    std::vector<int> indices({
+        0, 1, 3,
+        3, 1, 2
+    });
 
-    GLuint elements[] = {
-        0, 1, 2,
-        2, 3, 0
-    };
+    StaticShader *shader = new StaticShader();
+    RawModel *model = g_loader->CreateRawModel(vertices, indices);
+    Texture *texture = new Texture(g_loader->LoadTexture("browser.png"));
+    TexturedModel *texturedModel = new TexturedModel(model, texture);
 
-    debug->Log("Works till here");
-
-    //Shader *shader = new Shader();
-    RawModel *model = loader->CreateRawModel(vertices);
-
-    debug->Log("Works till there");
-
+    log("model id: %d, model vertices: %d", model->m_vaoId, model->m_vertexCount);
 
     sf::Event windowEvent;
     while(running)
@@ -88,15 +81,19 @@ int main()
             }
         }
 
-        renderer->ClearWindow();
-        renderer->Render(model);
-
+        g_renderer->ClearWindow();
+        shader->Activate();
+        g_renderer->Render(texturedModel);
+        shader->Deactivate();
         window->display();
     }
 
-    //delete shader;
-    delete loader;
-    delete renderer;
-    delete debug;
+    delete shader;
+    delete g_loader;
+    delete g_renderer;
+    delete g_debug;
+    delete model;
+    delete texture;
+    delete texturedModel;
     return 0;
 }

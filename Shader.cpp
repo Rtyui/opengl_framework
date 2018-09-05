@@ -1,76 +1,74 @@
 #include "Shader.hpp"
-#include "Stdincl.hpp"
+#include "Debug.hpp"
+#include "Debug.hpp"
 
 #include <iostream>
 #include <fstream>
 
 Shader* Shader::activeShader = NULL;
 
-Shader::Shader()
+Shader::Shader(const std::string &vertexShaderFile, const std::string &fragmentShaderFile)
 {
-    CreateProgram();
+    CreateProgram(vertexShaderFile, fragmentShaderFile);
     isActive = false;
 }
 
 Shader::~Shader()
 {
     // Detach shaders
-    glDetachShader(programId, vertexShaderId);
-    glDetachShader(programId, fragmentShaderId);
+    glDetachShader(m_programId, m_vertexShaderId);
+    glDetachShader(m_programId, m_fragmentShaderId);
 
     // Delete shaders and program
-    glDeleteShader(vertexShaderId);
-    glDeleteShader(fragmentShaderId);
-    glDeleteProgram(programId);
+    glDeleteShader(m_vertexShaderId);
+    glDeleteShader(m_fragmentShaderId);
+    glDeleteProgram(m_programId);
 }
 
 void Shader::Activate()
 {
     isActive = true;
-    glUseProgram(programId);
+    glUseProgram(m_programId);
+    Shader::activeShader = this;
 }
 
-void Shader::CreateProgram()
+void Shader::Deactivate()
 {
-    // Create file descriptors
+    isActive = false;
+    glUseProgram(0);
+    Shader::activeShader = NULL;
+
+}
+
+void Shader::CreateProgram(const std::string &vertexShaderFile, const std::string &fragmentShaderFile)
+{
     std::ifstream vertexShaderStream(vertexShaderFile);
     std::ifstream fragmentShaderStream(fragmentShaderFile);
-    debug->Log("Created fds");
 
-    // Read files into strings
     std::string vertexShaderContent((std::istreambuf_iterator<char>(vertexShaderStream)), std::istreambuf_iterator<char>());
     std::string fragmentShaderContent((std::istreambuf_iterator<char>(fragmentShaderStream)), std::istreambuf_iterator<char>());
-    debug->Log("Read files");
 
-    // Create the shaders ids
-    vertexShaderId = glCreateShader(GL_VERTEX_SHADER);
-    fragmentShaderId = glCreateShader(GL_FRAGMENT_SHADER);
-    debug->Log("Created shader ids");
+    m_vertexShaderId = glCreateShader(GL_VERTEX_SHADER);
+    m_fragmentShaderId = glCreateShader(GL_FRAGMENT_SHADER);
 
-    // Fill shader source
     const char *vertexShaderContentBuf = vertexShaderContent.data();
-    glShaderSource(vertexShaderId, 1, &vertexShaderContentBuf, NULL);
+    glShaderSource(m_vertexShaderId, 1, &vertexShaderContentBuf, NULL);
     const char *fragmentShaderContentBuf = fragmentShaderContent.data();
-    glShaderSource(fragmentShaderId, 1, &fragmentShaderContentBuf, NULL);
-    debug->Log("Filled shader sources");
+    glShaderSource(m_fragmentShaderId, 1, &fragmentShaderContentBuf, NULL);
 
-    // Compile shaders
     CompileShaders();
 
-    // Combining into program
-    programId = glCreateProgram();
-    glAttachShader(programId, vertexShaderId);
-    glAttachShader(programId, fragmentShaderId);
+    m_programId = glCreateProgram();
+    glAttachShader(m_programId, m_vertexShaderId);
+    glAttachShader(m_programId, m_fragmentShaderId);
 
-    //glBindFragDataLocation(programId, 0, "outColor");
-    glLinkProgram(programId);
-
-    debug->Log("Created Program");
+    glLinkProgram(m_programId);
+    glValidateProgram(m_programId);
 }
 
 void Shader::CompileShaders()
 {
-    GLuint shaders[] = {vertexShaderId, fragmentShaderId};
+    GLuint shaders[] = {m_vertexShaderId, m_fragmentShaderId};
 
     for(GLuint shaderId : shaders)
     {
@@ -80,12 +78,21 @@ void Shader::CompileShaders()
 
         if(status != GL_TRUE)
         {
-            debug->Log("Bad status for shader %d", shaderId);
+            log("Bad status for shader %d", shaderId);
             char buffer[512];
             glGetShaderInfoLog(shaderId, sizeof(buffer), NULL, buffer);
-            debug->Log(buffer);
+            log(buffer);
             exit(0);
         }
     }
-    debug->Log("Compiled Shaders");
+    log("Compiled Shaders");
+}
+
+void Shader::BindAttributes()
+{
+}
+
+void Shader::BindAttribute(int attribute, const std::string &variableName)
+{
+    glBindAttribLocation(m_programId, attribute, variableName.c_str());
 }
