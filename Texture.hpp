@@ -3,7 +3,7 @@
 
 class Texture
 {
-private:
+public:
 
     GLuint      m_textureId;
 

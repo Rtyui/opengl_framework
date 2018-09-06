@@ -15,7 +15,7 @@
 #define ERROR_COLOR         "\033[1;31m"
 #define COLOR_TAG_END       "\033[0m"
 
-#define log(t, fmt, ...) g_debug->Log(__FILE__, __LINE__, __FUNCTION__, t, fmt, ##__VA_ARGS__)
+#define elog(t, fmt, ...) g_debug->Log(__FILE__, __LINE__, __FUNCTION__, t, fmt, ##__VA_ARGS__)
 
 #define I Info
 #define W Warning

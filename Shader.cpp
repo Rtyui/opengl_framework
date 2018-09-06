@@ -1,9 +1,9 @@
 #include "Shader.hpp"
 #include "Debug.hpp"
-#include "Debug.hpp"
 
 #include <iostream>
 #include <fstream>
+#include <glm/gtc/type_ptr.hpp>
 
 Shader* Shader::activeShader = NULL;
 
@@ -61,9 +61,6 @@ void Shader::CreateProgram(const std::string &vertexShaderFile, const std::strin
     m_programId = glCreateProgram();
     glAttachShader(m_programId, m_vertexShaderId);
     glAttachShader(m_programId, m_fragmentShaderId);
-
-    glLinkProgram(m_programId);
-    glValidateProgram(m_programId);
 }
 
 void Shader::CompileShaders()
@@ -80,6 +77,7 @@ void Shader::CompileShaders()
         {
             char buffer[512];
             glGetShaderInfoLog(shaderId, sizeof(buffer), NULL, buffer);
+            elog(E, "Shader error: %s", buffer);
             exit(0);
         }
     }
@@ -92,4 +90,42 @@ void Shader::BindAttributes()
 void Shader::BindAttribute(int attribute, const std::string &variableName)
 {
     glBindAttribLocation(m_programId, attribute, variableName.c_str());
+}
+
+void Shader::Initialize()
+{
+    BindAttributes();
+    glLinkProgram(m_programId);
+    glValidateProgram(m_programId);
+    GetAllUniformLocations();
+}
+
+GLint Shader::GetUniformLocation(const char *uniformName)
+{
+    GLint ret = glGetUniformLocation(m_programId, uniformName);
+    return ret;
+}
+
+void Shader::LoadFloat(GLint location, GLfloat value)
+{
+    glUniform1f(location, value);
+}
+
+void Shader::LoadVector(GLint location, glm::vec3 vector)
+{
+    glUniform3f(location, vector.x, vector.y, vector.z);
+}
+
+void Shader::LoadBool(GLint location, bool value)
+{
+    glUniform1f(location, value ? 1.0f : 0.0f);
+}
+
+void Shader::LoadMatrix(GLint location, glm::mat4 matrix)
+{
+    glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
+}
+
+void Shader::GetAllUniformLocations()
+{
 }

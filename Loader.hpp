@@ -23,7 +23,7 @@ public:
 
                             ~Loader();
 
-    RawModel*               CreateRawModel(const std::vector<float> &positions, const std::vector<int> &indices);
+    RawModel*               CreateRawModel(const std::vector<float> &positions, const std::vector<float> &textureCoords, const std::vector<int> &indices);
     GLuint                  LoadTexture(const std::string &filename);
     static void             Instantiate();
 
@@ -31,7 +31,7 @@ private:
 
                             Loader();
     GLuint                  GetNewVaoId();
-    void                    StoreDataInAttributeList(int attributeNumber, const std::vector<float> &data);
+    void                    StoreDataInAttributeList(int attributeNumber, int coordinateSize, const std::vector<float> &data);
     void                    BindIndicesBuffer(const std::vector<int> &indices);
 
 };

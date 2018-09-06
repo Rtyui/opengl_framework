@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <GL/glew.h>
+#include <glm/glm.hpp>
 
 class Shader
 {
@@ -29,6 +30,7 @@ public:
 
     void                    Activate();
     void                    Deactivate();
+    void                    Initialize();
 
 private:
 
@@ -39,5 +41,12 @@ private:
 protected:
     virtual void            BindAttributes();
     void                    BindAttribute(int attribute, const std::string &variableName);
+    GLint                   GetUniformLocation(const char* uniformName);
+    void                    LoadFloat(GLint location, GLfloat value);
+    void                    LoadVector(GLint location, glm::vec3 vector);
+    void                    LoadBool(GLint location, bool value);
+    void                    LoadMatrix(GLint location, glm::mat4 matrix);
+    virtual void            GetAllUniformLocations();
+
 
 };
