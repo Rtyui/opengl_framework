@@ -44,85 +44,11 @@ int main()
     glEnable(GL_DEPTH_TEST);
 
     CallContructorsForSingletons();
-    g_objLoader->LoadObjModel("stall.obj");
-
-    std::vector<float> vertices({
-        -0.5f,0.5f,-0.5f,	
-        -0.5f,-0.5f,-0.5f,	
-        0.5f,-0.5f,-0.5f,	
-        0.5f,0.5f,-0.5f,		
-        
-        -0.5f,0.5f,0.5f,	
-        -0.5f,-0.5f,0.5f,	
-        0.5f,-0.5f,0.5f,	
-        0.5f,0.5f,0.5f,
-        
-        0.5f,0.5f,-0.5f,	
-        0.5f,-0.5f,-0.5f,	
-        0.5f,-0.5f,0.5f,	
-        0.5f,0.5f,0.5f,
-        
-        -0.5f,0.5f,-0.5f,	
-        -0.5f,-0.5f,-0.5f,	
-        -0.5f,-0.5f,0.5f,	
-        -0.5f,0.5f,0.5f,
-        
-        -0.5f,0.5f,0.5f,
-        -0.5f,0.5f,-0.5f,
-        0.5f,0.5f,-0.5f,
-        0.5f,0.5f,0.5f,
-        
-        -0.5f,-0.5f,0.5f,
-        -0.5f,-0.5f,-0.5f,
-        0.5f,-0.5f,-0.5f,
-        0.5f,-0.5f,0.5f
-    });
-    std::vector<int> indices({
-        0,1,3,	
-        3,1,2,	
-        4,5,7,
-        7,5,6,
-        8,9,11,
-        11,9,10,
-        12,13,15,
-        15,13,14,	
-        16,17,19,
-        19,17,18,
-        20,21,23,
-        23,21,22
-    });
-
-    std::vector<float> textureCoords({
-        0,0,
-        0,1,
-        1,1,
-        1,0,			
-        0,0,
-        0,1,
-        1,1,
-        1,0,			
-        0,0,
-        0,1,
-        1,1,
-        1,0,
-        0,0,
-        0,1,
-        1,1,
-        1,0,
-        0,0,
-        0,1,
-        1,1,
-        1,0,
-        0,0,
-        0,1,
-        1,1,
-        1,0
-    });
 
     StaticShader *shader = new StaticShader();
     shader->Initialize();
-    RawModel *model = g_loader->CreateRawModel(vertices, textureCoords, indices);
-    Texture *texture = new Texture(g_loader->LoadTexture("s.png"));
+    RawModel *model = g_objLoader->LoadObjModel("stall.obj");
+    Texture *texture = new Texture(g_loader->LoadTexture("stallTexture.png"));
     TexturedModel *texturedModel = new TexturedModel(model, texture);
 
     Renderer::Instantiate(shader);
@@ -132,7 +58,7 @@ int main()
     elog(W, "This is an warning log");
     elog(E, "This is an error log");
 
-    Entity *entity = new Entity(texturedModel, glm::vec3(0.0f, 0.0f, -1.f), glm::vec3(0.f, 0.f, 0.f), glm::vec3(1.f, 1.f, 1.f));
+    Entity *entity = new Entity(texturedModel, glm::vec3(0.0f, 0.0f, -30.f), glm::vec3(0.f, 0.f, 0.f), glm::vec3(1.f, 1.f, 1.f));
 
     Camera *camera = new Camera();
 

@@ -33,6 +33,7 @@ void Renderer::Render(Entity* entity, StaticShader* shader)
     transMat = glm::rotate(transMat, entity->m_rotation.x, glm::vec3(1.f, 0.f, 0.f));
     transMat = glm::rotate(transMat, entity->m_rotation.y, glm::vec3(0.f, 1.f, 0.f));
     transMat = glm::rotate(transMat, entity->m_rotation.z, glm::vec3(0.f, 0.f, 1.f));
+    
     shader->LoadTransformationMatrix(transMat);
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texturedModel->m_texture->m_textureId);
