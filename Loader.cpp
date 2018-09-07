@@ -18,14 +18,14 @@ Loader::~Loader()
     glDeleteTextures(m_textures.size(), m_textures.data());
 }
 
-RawModel* Loader::CreateRawModel(const std::vector<float> &positions, const std::vector<float> &textureCoords, const std::vector<int> &indices)
+Mesh* Loader::CreateRawModel(const std::vector<float> &positions, const std::vector<float> &textureCoords, const std::vector<int> &indices)
 {
     GLuint vaoId = GetNewVaoId();
     BindIndicesBuffer(indices);
     StoreDataInAttributeList(0, 3, positions);
     StoreDataInAttributeList(1, 2, textureCoords);
     glBindVertexArray(0);
-    return new RawModel(vaoId, indices.size());
+    return new Mesh(vaoId, indices.size());
 }
 
 GLuint Loader::LoadTexture(const std::string &filename)

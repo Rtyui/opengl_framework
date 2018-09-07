@@ -1,23 +1,11 @@
 #include "ObjLoader.hpp"
 #include "Debug.hpp"
 #include "Loader.hpp"
+#include "Utilities.hpp"
 
 #include <fstream>
 #include <glm/glm.hpp>
-#include <sstream>
 #include <iterator>
-
-std::vector<std::string> split(std::string strToSplit, char delimeter)
-{
-    std::stringstream ss(strToSplit);
-    std::string item;
-    std::vector<std::string> splittedStrings;
-    while (std::getline(ss, item, delimeter))
-    {
-       splittedStrings.push_back(item);
-    }
-    return splittedStrings;
-}
 
 ObjLoader *g_objLoader = NULL;
 
@@ -30,7 +18,7 @@ void ObjLoader::Instantiate()
     g_objLoader = new ObjLoader();
 }
 
-RawModel* ObjLoader::LoadObjModel(const std::string &filename)
+Mesh* ObjLoader::LoadObjModel(const std::string &filename)
 {
     elog(I, "");
     std::ifstream file;

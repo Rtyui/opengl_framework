@@ -5,12 +5,12 @@
 #include <fstream>
 #include <glm/gtc/type_ptr.hpp>
 
-Shader* Shader::activeShader = NULL;
+Shader* Shader::m_activeShader = NULL;
 
 Shader::Shader(const std::string &vertexShaderFile, const std::string &fragmentShaderFile)
 {
     CreateProgram(vertexShaderFile, fragmentShaderFile);
-    isActive = false;
+    m_isActive = false;
 }
 
 Shader::~Shader()
@@ -27,16 +27,16 @@ Shader::~Shader()
 
 void Shader::Activate()
 {
-    isActive = true;
+    m_isActive = true;
     glUseProgram(m_programId);
-    Shader::activeShader = this;
+    Shader::m_activeShader = this;
 }
 
 void Shader::Deactivate()
 {
-    isActive = false;
+    m_isActive = false;
     glUseProgram(0);
-    Shader::activeShader = NULL;
+    Shader::m_activeShader = NULL;
 
 }
 

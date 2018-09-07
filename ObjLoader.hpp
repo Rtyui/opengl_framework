@@ -4,15 +4,15 @@
 #include <vector>
 #include <string>
 #include <glm/glm.hpp>
-#include "RawModel.hpp"
 
+#include "Mesh.hpp"
 
 class ObjLoader
 {
 public:
 
     static void         Instantiate();
-    RawModel*           LoadObjModel(const std::string &filename);
+    Mesh*               LoadObjModel(const std::string &filename);
 
 private:
 

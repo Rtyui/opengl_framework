@@ -8,18 +8,13 @@ class Shader
 
 // Members
 private:
-
-    std::string vertexShaderFile = "vertex_shader";
-    std::string fragmentShaderFile = "fragment_shader";
-
-    GLuint m_vertexShaderId;
-    GLuint m_fragmentShaderId;
-    GLuint m_programId;
+    GLuint                  m_vertexShaderId;
+    GLuint                  m_fragmentShaderId;
+    GLuint                  m_programId;
 
 public:
-
-    static Shader* activeShader;
-    bool isActive;
+    static Shader*          m_activeShader;
+    bool                    m_isActive;
 
 // Methods
 

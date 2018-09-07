@@ -9,7 +9,7 @@
 #include "Renderer.hpp"
 #include "StaticShader.hpp"
 #include "Texture.hpp"
-#include "TexturedModel.hpp"
+#include "Model.hpp"
 #include "Camera.hpp"
 #include "ObjLoader.hpp"
 
@@ -47,25 +47,28 @@ int main()
 
     StaticShader *shader = new StaticShader();
     shader->Initialize();
-    RawModel *model = g_objLoader->LoadObjModel("stall.obj");
+    Mesh *mesh = g_objLoader->LoadObjModel("stall.obj");
     Texture *texture = new Texture(g_loader->LoadTexture("stallTexture.png"));
-    TexturedModel *texturedModel = new TexturedModel(model, texture);
+    Model *model = new Model(mesh, texture);
 
-    Renderer::Instantiate(shader);
+    shader->Activate();
+    Renderer *renderer = new Renderer();
+    shader->Deactivate();
+    renderer->RegisterComponent(model);
 
     // elog(I, "model id: %d, model vertices: %d", model->m_vaoId, model->m_vertexCount);
     elog(I, "This is an info log");
     elog(W, "This is an warning log");
     elog(E, "This is an error log");
 
-    Entity *entity = new Entity(texturedModel, glm::vec3(0.0f, 0.0f, -30.f), glm::vec3(0.f, 0.f, 0.f), glm::vec3(1.f, 1.f, 1.f));
+    //Entity *entity = new Entity(model, glm::vec3(0.0f, 0.0f, -30.f), glm::vec3(0.f, 0.f, 0.f), glm::vec3(1.f, 1.f, 1.f));
 
     Camera *camera = new Camera();
 
     sf::Event windowEvent;
     while(running)
     {
-        entity->Rotate(glm::vec3(0.f, 0.003f, 0.f));
+        //entity->Rotate(glm::vec3(0.f, 0.003f, 0.f));
         //entity->Translate(glm::vec3(0.f, 0.f, -0.002f));
         while(window->pollEvent(windowEvent))
         {
@@ -86,22 +89,23 @@ int main()
             }
         }
 
-        g_renderer->ClearWindow();
+        renderer->ClearWindow();
         shader->Activate();
         shader->LoadViewMatrix(glm::lookAt(camera->m_position, camera->m_position + glm::vec3(0.f, 0.f, -1.f), glm::vec3(0.f, 1.f, 0.f)));
-        g_renderer->Render(entity, shader);
+        //g_renderer->Render(entity, shader);
+        renderer->Update();
         shader->Deactivate();
         window->display();
     }
 
     delete shader;
     delete camera;
-    delete entity;
+    //delete entity;
     delete g_loader;
-    delete g_renderer;
+    //delete g_renderer;
     delete g_debug;
-    delete model;
+    delete mesh;
     delete texture;
-    delete texturedModel;
+    delete model;
     return 0;
 }

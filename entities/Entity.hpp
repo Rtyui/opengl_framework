@@ -1,22 +1,32 @@
 #pragma once
-#include "TexturedModel.hpp"
+#include "Model.hpp"
 #include <glm/glm.hpp>
 
 class Entity
 {
+// // // //
+// Members
+// // // //
 public:
 
-    TexturedModel*          m_texturedModel;
+    Model*                  m_model;
     glm::vec3               m_position;
     glm::vec3               m_rotation;
     glm::vec3               m_scale;
+protected:
+private:
 
+// // // //
+// Methods
+// // // //
 public:
 
                             Entity();
-                            Entity(TexturedModel* texturedModel, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale);
+                            Entity(Model* model, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale);
                             ~Entity();
 
     void                    Translate(glm::vec3 translation);
     void                    Rotate(glm::vec3 rotation);
+protected:
+private:
 };

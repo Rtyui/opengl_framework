@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string.h>
+#include "Utilities.hpp"
 
 Debug *g_debug = NULL;
 
@@ -32,6 +33,9 @@ void Debug::Log(const char* filename, const int line, const char* function, Debu
     std::string functionString(function);
     std::string lineString(std::to_string(line));
     std::string bufString(buf);
+
+    std::vector<std::string> files = split(filenameString, '/');
+    filenameString = files.back();
 
     datetimeString += std::string(DATETIME_COL_SIZE - datetimeString.size(), ' ');
     filenameString += std::string(FILENAME_COL_SIZE - filenameString.size(), ' ');

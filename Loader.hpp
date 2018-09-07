@@ -1,8 +1,9 @@
 #pragma once
 #include <vector>
 #include <GL/glew.h>
-#include "RawModel.hpp"
 #include <string>
+
+#include "Mesh.hpp"
 
 class Loader
 {
@@ -23,7 +24,7 @@ public:
 
                             ~Loader();
 
-    RawModel*               CreateRawModel(const std::vector<float> &positions, const std::vector<float> &textureCoords, const std::vector<int> &indices);
+    Mesh*                   CreateRawModel(const std::vector<float> &positions, const std::vector<float> &textureCoords, const std::vector<int> &indices);
     GLuint                  LoadTexture(const std::string &filename);
     static void             Instantiate();
 
