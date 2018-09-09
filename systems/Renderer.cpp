@@ -6,17 +6,14 @@
 /* Static Includes */
 #include "Renderer.hpp"
 #include "Debug.hpp"
-#include "StaticShader.hpp"
 
 Renderer::Renderer()
 {
-    if(StaticShader *shader = CheckActiveShader())
-    {
-        m_projectionMatrix = glm::perspective(FOV, 800.f / 600.f, NEAR_PLANE, FAR_PLANE);
-        shader->Activate();
-        shader->LoadProjectionMatrix(m_projectionMatrix);
-        shader->Deactivate();
-    }
+    m_shader = new StaticShader();
+    m_projectionMatrix = glm::perspective(FOV, 800.f / 600.f, NEAR_PLANE, FAR_PLANE);
+    m_shader->Activate();
+    m_shader->LoadProjectionMatrix(m_projectionMatrix);
+    m_shader->Deactivate();
 }
 
 Renderer::~Renderer()
@@ -50,11 +47,6 @@ void Renderer::ProcessComponent(Component *component)
         elog(W, "Trying to process a component of other type than Model; removing it");
         return;
     }
-    StaticShader *shader = CheckActiveShader();
-    if(!shader)
-    {
-        return;
-    }
 
     Mesh *mesh = model->m_mesh;
     glBindVertexArray(mesh->m_vaoId);
@@ -68,21 +60,11 @@ void Renderer::ProcessComponent(Component *component)
     transMat = glm::rotate(transMat, 0.f, glm::vec3(0.f, 1.f, 0.f));
     transMat = glm::rotate(transMat, 0.f, glm::vec3(0.f, 0.f, 1.f));
     
-    shader->LoadTransformationMatrix(transMat);
+    m_shader->LoadTransformationMatrix(transMat);
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, model->m_texture->m_textureId);
     glDrawElements(GL_TRIANGLES, mesh->m_vertexCount, GL_UNSIGNED_INT, 0);
     glDisableVertexAttribArray(0);
     glDisableVertexAttribArray(1);
     glBindVertexArray(0);
-}
-
-StaticShader* Renderer::CheckActiveShader()
-{
-    if(StaticShader *shader = dynamic_cast<StaticShader*>(Shader::m_activeShader))
-    {
-        return shader;
-    }
-    elog(W, "Active shader is not of type StaticShader");
-    return NULL;
 }

@@ -25,6 +25,14 @@ void System::Update()
     }
 }
 
+void System::RegisterNewComponent(Component *component)
+{
+    if(dynamic_cast<Model*>(component))
+    {
+        
+    }
+}
+
 void System::RegisterComponent(Component *component)
 {
     m_registeredComponents->push_back(component);

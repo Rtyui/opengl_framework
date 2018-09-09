@@ -1,6 +1,14 @@
 #pragma once
-#include "Model.hpp"
+
+/* Dynamic Includes */
 #include <glm/glm.hpp>
+#include <string>
+#include <vector>
+
+/* Static includes */
+#include "Model.hpp"
+#include "Component.hpp"
+
 
 class Entity
 {
@@ -8,25 +16,24 @@ class Entity
 // Members
 // // // //
 public:
-
-    Model*                  m_model;
-    glm::vec3               m_position;
-    glm::vec3               m_rotation;
-    glm::vec3               m_scale;
+    const int                       id() const {return m_id;}
+    const std::string&              name() const {return m_name;}
+    const std::vector<Component*>*  components() const { return m_components;}
 protected:
+    int                             m_id;
+    std::string                     m_name;
+    std::vector<Component*>*        m_components;
 private:
+    static int                      nextId;
 
 // // // //
 // Methods
 // // // //
 public:
-
-                            Entity();
-                            Entity(Model* model, glm::vec3 position, glm::vec3 rotation, glm::vec3 scale);
-                            ~Entity();
-
-    void                    Translate(glm::vec3 translation);
-    void                    Rotate(glm::vec3 rotation);
+                                    Entity();
+                                    Entity(const std::string &name);
+                                    ~Entity();
+    void                            AddComponent(Component *component);
 protected:
 private:
 };

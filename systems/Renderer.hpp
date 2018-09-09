@@ -22,6 +22,7 @@ private:
     static constexpr float  FAR_PLANE = 1000.f;
 
     glm::mat4               m_projectionMatrix;
+    StaticShader*           m_shader;
 
 // // // //
 // Methods
@@ -36,5 +37,4 @@ protected:
     void                    ProcessComponent(Component *component) override;
 
 private:
-    StaticShader*           CheckActiveShader();
 };
