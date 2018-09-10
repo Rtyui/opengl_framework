@@ -1,9 +1,11 @@
-#include "Shader.hpp"
-#include "Debug.hpp"
-
+/* Dynamic Includes */
 #include <iostream>
 #include <fstream>
 #include <glm/gtc/type_ptr.hpp>
+
+/* Static includes */
+#include "Shader.hpp"
+#include "Debug.hpp"
 
 Shader* Shader::m_activeShader = NULL;
 

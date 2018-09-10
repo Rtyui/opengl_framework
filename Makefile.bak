@@ -1,0 +1,26 @@
+CC = g++
+CFLAGS = -Wall -g
+INCLUDES = -I/usr/include -I$(CURDIR) -I$(CURDIR)/entities/ -I$(CURDIR)/components/ -I$(CURDIR)/systems/ -I$(CURDIR)/shaders/
+LFLAGS = 
+LIBS = -lsfml-window -lsfml-system -lsfml-graphics -lGL -lGLEW
+SRCS = $(shell find $(SOURCEDIR) -name '*.cpp')
+OBJS = $(SRCS:.cpp=.o)
+MAIN = app
+
+.PHONY: depend clean
+
+all:	$(MAIN)
+		@echo  Simple compiler named app has been compiled
+
+$(MAIN): $(OBJS) 
+		$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
+.cpp.o:
+		$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+clean:
+		$(RM) *.o *~ $(MAIN)
+
+depend: $(SRCS)
+		makedepend $(INCLUDES) $^
+
+# DO NOT DELETE THIS LINE -- make depend needs it

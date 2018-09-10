@@ -1,3 +1,6 @@
+/* Dynamic Includes */
+
+/* Static includes */
 #include "Texture.hpp"
 
 Texture::Texture()

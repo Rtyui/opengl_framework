@@ -37,10 +37,6 @@ GLuint Loader::LoadTexture(const std::string &filename)
         exit(0);
     }
 
-    loadedImage.saveToFile("caca.png");
-
-    elog(I, "%d", loadedImage.getSize().x);
-
     GLuint textureId;
     glGenTextures(1, &textureId);
     m_textures.push_back(textureId);

@@ -1,4 +1,8 @@
 #pragma once
+
+/* Dynamic Includes */
+
+/* Static includes */
 #include "Mesh.hpp"
 #include "Texture.hpp"
 #include "Component.hpp"
@@ -21,6 +25,7 @@ public:
                         Model();
                         Model(Mesh *mesh, Texture *texture);
                         ~Model() override;
+    std::string         GetSystemTag() override;
 protected:
 private:
 };

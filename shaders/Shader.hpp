@@ -1,23 +1,30 @@
 #pragma once
+
+/* Dynamic Includes */
 #include <string>
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 
+/* Static includes */
+
 class Shader
 {
-
+// // // //
 // Members
+// // // //
+public:
+    const bool&             isActive() const { return m_isActive; }
+    static Shader*          m_activeShader;
+protected:
 private:
     GLuint                  m_vertexShaderId;
     GLuint                  m_fragmentShaderId;
     GLuint                  m_programId;
-
-public:
-    static Shader*          m_activeShader;
     bool                    m_isActive;
 
+// // // //
 // Methods
-
+// // // //
 public:
 
                             Shader(const std::string &vertexShaderFile, const std::string &fragmentShaderFile);
@@ -26,12 +33,6 @@ public:
     void                    Activate();
     void                    Deactivate();
     void                    Initialize();
-
-private:
-
-    void                    CreateProgram(const std::string &vertexShaderFile, const std::string &fragmentShaderFile);
-    void                    CompileShaders();
-    void                    CreateAttribs();
 
 protected:
     virtual void            BindAttributes();
@@ -43,5 +44,9 @@ protected:
     void                    LoadMatrix(GLint location, glm::mat4 matrix);
     virtual void            GetAllUniformLocations();
 
+private:
 
+    void                    CreateProgram(const std::string &vertexShaderFile, const std::string &fragmentShaderFile);
+    void                    CompileShaders();
+    void                    CreateAttribs();
 };

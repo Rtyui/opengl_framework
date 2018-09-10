@@ -1,3 +1,6 @@
+/* Dynamic Includes */
+
+/* Static includes */
 #include "StaticShader.hpp"
 #include "Debug.hpp"
 

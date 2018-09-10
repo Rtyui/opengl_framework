@@ -1,3 +1,6 @@
+/* Dynamic Includes */
+
+/* Static includes */
 #include "Model.hpp"
 
 Model::Model()
@@ -14,4 +17,9 @@ Model::Model(Mesh *mesh, Texture *texture)
 
 Model::~Model()
 {
+}
+
+std::string Model::GetSystemTag()
+{
+    return std::string("Renderer");
 }

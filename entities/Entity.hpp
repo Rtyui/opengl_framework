@@ -8,6 +8,7 @@
 /* Static includes */
 #include "Model.hpp"
 #include "Component.hpp"
+#include "Debug.hpp"
 
 
 class Entity
@@ -16,9 +17,8 @@ class Entity
 // Members
 // // // //
 public:
-    const int                       id() const {return m_id;}
+    const int&                      id() const {return m_id;}
     const std::string&              name() const {return m_name;}
-    const std::vector<Component*>*  components() const { return m_components;}
 protected:
     int                             m_id;
     std::string                     m_name;
@@ -34,6 +34,20 @@ public:
                                     Entity(const std::string &name);
                                     ~Entity();
     void                            AddComponent(Component *component);
+
+    template <typename T>
+    T*                        GetComponent()
+    {
+        T *ret = NULL;
+        for(Component *component : *m_components)
+        {
+            if((ret = dynamic_cast<T*>(component)))
+            {
+                break;
+            }
+        }
+        return ret;
+    }
 protected:
 private:
 };

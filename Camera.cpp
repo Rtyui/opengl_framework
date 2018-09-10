@@ -1,9 +1,15 @@
+/* Dynamic Includes */
+
+/* Static Includes */
 #include "Camera.hpp"
 #include "SFML/Window/Keyboard.hpp"
 
+Camera* Camera::active = NULL;
+
 Camera::Camera()
 {
-    m_position = glm::vec3(0.f, 0.f, 5.f);
+    m_position = glm::vec3(0.f, 0.f, 10.f);
+    Camera::active = this;
 }
 
 Camera::~Camera()

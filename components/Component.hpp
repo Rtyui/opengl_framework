@@ -1,4 +1,8 @@
 #pragma once
+/* Dynamic includes */
+#include <string>
+
+/* Static includes */
 
 class Entity;
 
@@ -8,19 +12,21 @@ class Component
 // Members
 // // // //
 public:
-    Entity*             m_entity;
-    int                 m_id;
+    const int&              id() const { return m_id; }
+    Entity*                 m_entity;
 protected:
+    int                     m_id;
 private:
-    static int          m_lastId;
+    static int              lastId;
 
 // // // //
 // Methods
 // // // //
 public:
-                        Component();
-                        Component(Entity *entity);
-    virtual             ~Component();
+                            Component();
+                            Component(Entity *entity);
+    virtual                 ~Component();
+    virtual std::string     GetSystemTag();
 protected:
 private:
 
