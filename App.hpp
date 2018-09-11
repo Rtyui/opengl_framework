@@ -35,4 +35,5 @@ private:
     void                            InstantiateSingletons();
     void                            DeleteSingletons();
     void                            InitializeOpenGL();
+    void                            CheckWindowEvent();
 };

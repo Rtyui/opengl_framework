@@ -11,8 +11,9 @@
 #include "Transform.hpp"
 #include "Entity.hpp"
 
-Renderer::Renderer()
+Renderer::Renderer() : System()
 {
+    m_models = std::map<Mesh*, std::vector<Model*>>();
     m_shader = new StaticShader();
     m_shader->Initialize();
     m_projectionMatrix = glm::perspective(FOV, 800.f / 600.f, NEAR_PLANE, FAR_PLANE);
@@ -32,36 +33,48 @@ void Renderer::ClearWindow()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
-void Renderer::Render(Entity* entity, StaticShader* shader)
-{
-    
-}
-
 void Renderer::ProcessComponent(Component *component)
 {
-    Model *model = CheckComponentType<Model>(component);
+    elog(I, "This should not be called");
+}
+
+void Renderer::ProcessComponents()
+{
     ClearWindow();
     m_shader->Activate();
     Camera *camera = Camera::active;
     m_shader->LoadViewMatrix(glm::lookAt(camera->m_position, camera->m_position + glm::vec3(0.f, 0.f, -1.f), glm::vec3(0.f, 1.f, 0.f)));
-
-    Mesh *mesh = model->m_mesh;
-    glBindVertexArray(mesh->vaoId());
-    glEnableVertexAttribArray(0);
-    glEnableVertexAttribArray(1);
-
-    glm::mat4 transfMatrix = glm::mat4(1);
-    if(Transform *transform = component->m_entity->GetComponent<Transform>())
+    
+    Mesh *mesh;
+    for(std::map<Mesh*, std::vector<Model*>>::iterator it = m_models.begin(); it != m_models.end(); ++it)
     {
-        transfMatrix = transform->transfMatrix();
-    }
+        mesh = it->first;
+        glBindVertexArray(mesh->vaoId());
+        glEnableVertexAttribArray(0);
+        glEnableVertexAttribArray(1);
 
-    m_shader->LoadTransformationMatrix(transfMatrix);
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, model->m_texture->textureId());
-    glDrawElements(GL_TRIANGLES, mesh->vertexCount(), GL_UNSIGNED_INT, 0);
-    glDisableVertexAttribArray(0);
-    glDisableVertexAttribArray(1);
-    glBindVertexArray(0);
-    m_shader->Deactivate();
+        for(Model *model : it->second)
+        {
+            glm::mat4 transfMatrix = glm::mat4(1);
+            if(Transform *transform = model->m_entity->GetComponent<Transform>())
+            {
+                transfMatrix = transform->transfMatrix();
+            }
+
+            m_shader->LoadTransformationMatrix(transfMatrix);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, model->m_texture->textureId());
+            glDrawElements(GL_TRIANGLES, mesh->vertexCount(), GL_UNSIGNED_INT, 0);
+        }
+        glDisableVertexAttribArray(0);
+        glDisableVertexAttribArray(1);
+        glBindVertexArray(0);
+        m_shader->Deactivate();
+    }
+}
+
+void Renderer::RegisterComponent(Component *component)
+{
+    Model *model = CheckComponentType<Model>(component);
+    m_models[model->m_mesh].push_back(model);
 }

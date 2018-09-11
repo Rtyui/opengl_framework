@@ -25,10 +25,11 @@ private:
 public:
                                             System();
     virtual                                 ~System();
+    static void                             UpdateAll();
+    static void                             DeleteAll();
     virtual void                            Update();
     virtual void                            ProcessComponent(Component *component) = 0;
     static void                             RegisterNewComponent(Component *component);
-    void                                    RegisterComponent(Component *component);
 protected:
     template <typename T>
     T*                                      CheckComponentType(Component *component)
@@ -52,6 +53,8 @@ protected:
             return tobj;
         }
     }
+    virtual void                            ProcessComponents();
+    virtual void                            RegisterComponent(Component *component);
 private:
 
 };

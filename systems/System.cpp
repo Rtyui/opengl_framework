@@ -21,7 +21,28 @@ System::~System()
     delete m_registeredComponents;
 }
 
+void System::UpdateAll()
+{
+    for(std::map<std::string, System*>::iterator it = m_systems.begin(); it != m_systems.end(); ++it)
+    {
+        it->second->Update();
+    }
+}
+
+void System::DeleteAll()
+{
+    for(std::map<std::string, System*>::iterator it = m_systems.begin(); it != m_systems.end(); ++it)
+    {
+        delete it->second;
+    }
+}
+
 void System::Update()
+{
+    ProcessComponents();
+}
+
+void System::ProcessComponents()
 {
     for(Component *component : *m_registeredComponents)
     {

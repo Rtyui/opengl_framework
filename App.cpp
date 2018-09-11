@@ -1,5 +1,6 @@
 /* Dynamic Includes */
 #include <GL/glew.h>
+
 /* Static Includes */
 #include "App.hpp"
 #include "Debug.hpp"
@@ -9,6 +10,7 @@
 #include "Transform.hpp"
 #include "Transformer.hpp"
 #include "Camera.hpp"
+#include "Input.hpp"
 
 
 App::App()
@@ -44,14 +46,16 @@ void App::CreateWindow()
 void App::InstantiateSingletons()
 {
     Resources::Instantiate();
+    Input::Instantiate();
     elog(I, "Instantiated singletons!");
 }
 
 void App::DeleteSingletons()
 {
-    delete g_debug;
     delete g_resources;
+    delete g_input;
     elog(I, "Deleted singletons!");
+    delete g_debug;
 }
 
 void App::InitializeOpenGL()
@@ -83,30 +87,32 @@ void App::Run()
     
     while(m_running)
     {
-        while(m_window->pollEvent(m_event))
+        g_input->Update();
+        if(g_input->IsJustPressed(sf::Keyboard::Escape))
         {
-            switch(m_event.type)
-            {
-            case sf::Event::Closed:
-                m_running = false;
-                break;
-            case sf::Event::KeyPressed:
-                if(m_event.key.code == sf::Keyboard::Escape)
-                {
-                    m_running = false;
-                }
-                break;
-            default:
-                break;
-            }
+            m_running = false;
         }
-        transformer->Update();
-        renderer->Update();
+        CheckWindowEvent();
+        System::UpdateAll();
         m_window->display();
     }
 
     delete camera;
     delete entity;
-    delete renderer;
-    delete transformer;
+    System::DeleteAll();
+}
+
+void App::CheckWindowEvent()
+{
+    while(m_window->pollEvent(m_event))
+    {
+        switch(m_event.type)
+        {
+        case sf::Event::Closed:
+            m_running = false;
+            break;
+        default:
+            break;
+        }
+    }
 }
