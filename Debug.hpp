@@ -5,7 +5,7 @@
 #define LOG_BUF_SIZE        1024
 #define DATETIME_COL_SIZE   25
 #define FILENAME_COL_SIZE   20
-#define FUNCTION_COL_SIZE   20
+#define FUNCTION_COL_SIZE   30
 #define LINE_COL_SIZE       4
 #define BUF_COL_SIZE        100
 

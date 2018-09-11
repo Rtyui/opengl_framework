@@ -49,6 +49,7 @@ void Resources::Instantiate()
 
 void Resources::LoadResources()
 {
+    elog(I, "Loading resources!");
     path targetDir(resFolderName.c_str());
 
     recursive_directory_iterator iter(targetDir), eod;

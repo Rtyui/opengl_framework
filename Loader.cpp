@@ -13,6 +13,7 @@ Loader::Loader()
 {
     m_vaos = std::vector<GLuint>();
     m_vbos = std::vector<GLuint>();
+    m_textures = std::vector<GLuint>();
 }
 
 Loader::~Loader()
