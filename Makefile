@@ -2,7 +2,7 @@ CC = g++
 CFLAGS = -Wall -g
 INCLUDES = -I/usr/include -I$(CURDIR) -I$(CURDIR)/entities/ -I$(CURDIR)/components/ -I$(CURDIR)/systems/ -I$(CURDIR)/shaders/
 LFLAGS = 
-LIBS = -lsfml-window -lsfml-system -lsfml-graphics -lGL -lGLEW
+LIBS = -lsfml-window -lsfml-system -lsfml-graphics -lGL -lGLEW -lboost_filesystem -lboost_system
 SRCS = $(shell find $(SOURCEDIR) -name '*.cpp')
 OBJS = $(SRCS:.cpp=.o)
 MAIN = app

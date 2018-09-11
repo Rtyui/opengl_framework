@@ -1,9 +1,13 @@
-#include "Loader.hpp"
-#include "Debug.hpp"
+/* Dynamic Includes */
 #include <iostream>
 #include <SFML/Graphics/Image.hpp>
+#include <fstream>
+#include <iterator>
 
-Loader* g_loader = NULL;
+/* Static Includes */
+#include "Loader.hpp"
+#include "Debug.hpp"
+#include "Utilities.hpp"
 
 Loader::Loader()
 {
@@ -18,7 +22,7 @@ Loader::~Loader()
     glDeleteTextures(m_textures.size(), m_textures.data());
 }
 
-Mesh* Loader::CreateRawModel(const std::vector<float> &positions, const std::vector<float> &textureCoords, const std::vector<int> &indices)
+Mesh* Loader::GetMesh(const std::vector<float> &positions, const std::vector<float> &textureCoords, const std::vector<int> &indices)
 {
     GLuint vaoId = GetNewVaoId();
     BindIndicesBuffer(indices);
@@ -28,7 +32,7 @@ Mesh* Loader::CreateRawModel(const std::vector<float> &positions, const std::vec
     return new Mesh(vaoId, indices.size());
 }
 
-GLuint Loader::LoadTexture(const std::string &filename)
+Texture* Loader::LoadTexture(const std::string &filename)
 {
     sf::Image loadedImage;
     if(!loadedImage.loadFromFile(filename))
@@ -48,7 +52,7 @@ GLuint Loader::LoadTexture(const std::string &filename)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-    return textureId;
+    return new Texture(textureId);
 }
 
 GLuint Loader::GetNewVaoId()
@@ -80,11 +84,103 @@ void Loader::BindIndicesBuffer(const std::vector<int> &indices)
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(int), &indices[0], GL_STATIC_DRAW);
 }
 
-void Loader::Instantiate()
+Mesh* Loader::LoadObjModel(const std::string &filename)
 {
-    if(g_loader != NULL)
+    std::ifstream file;
+    file.open(filename);
+
+    std::vector<glm::vec3> vertices;
+    std::vector<glm::vec2> textures;
+    std::vector<glm::vec3> normals;
+    std::vector<int> indices;
+
+    std::vector<float> texturesArray;
+    std::vector<float> normalsArray;
+    std::vector<float> verticesArray;
+
+    std::string line;
+    while(std::getline(file, line))
     {
-        std::cerr << "Double instantiation not allowed" << std::endl;
+        std::istringstream iss(line);
+        std::vector<std::string> tokens{std::istream_iterator<std::string>{iss},
+                                        std::istream_iterator<std::string>{}};
+
+        if(tokens[0] == "v")
+        {
+            glm::vec3 vertex = glm::vec3(std::stof(tokens[1]),
+                                        std::stof(tokens[2]),
+                                        std::stof(tokens[3]));
+            vertices.push_back(vertex);
+        }
+        else if(tokens[0] == "vt")
+        {
+            glm::vec2 texture = glm::vec2(std::stof(tokens[1]),
+                                        std::stof(tokens[2]));
+            textures.push_back(texture);
+        }
+        else if(tokens[0] == "vn")
+        {
+            glm::vec3 normal = glm::vec3(std::stof(tokens[1]),
+                                        std::stof(tokens[2]),
+                                        std::stof(tokens[3]));
+            normals.push_back(normal);
+        }
+        else if(tokens[0] == "f")
+        {
+            texturesArray = std::vector<float>(vertices.size() * 2);
+            normalsArray = std::vector<float>(vertices.size() * 3);
+            break;
+        }
     }
-    g_loader = new Loader();
+
+    do
+    {
+        std::istringstream iss(line);
+        std::vector<std::string> tokens{std::istream_iterator<std::string>{iss},
+                                        std::istream_iterator<std::string>{}};
+
+        if(tokens[0] == "f")
+        {
+            std::vector<std::string> vertex1 = split(tokens[1], '/');
+            std::vector<std::string> vertex2 = split(tokens[2], '/');
+            std::vector<std::string> vertex3 = split(tokens[3], '/');
+
+            ProcessVertex(vertex1, indices, textures, normals, &texturesArray, &normalsArray);
+            ProcessVertex(vertex2, indices, textures, normals, &texturesArray, &normalsArray);
+            ProcessVertex(vertex3, indices, textures, normals, &texturesArray, &normalsArray);
+        }
+    } while(std::getline(file, line));
+
+    file.close();
+
+    verticesArray = std::vector<float>(vertices.size() * 3);
+
+    int index = 0;
+    for(glm::vec3 vec : vertices)
+    {
+        verticesArray[index++] = vec.x;
+        verticesArray[index++] = vec.y;
+        verticesArray[index++] = vec.z;
+    }
+
+    return GetMesh(verticesArray, texturesArray, indices);
+}
+
+void Loader::ProcessVertex(const std::vector<std::string> &verticesData,
+                                    std::vector<int> &indices,
+                              const std::vector<glm::vec2> &textures,
+                              const std::vector<glm::vec3> &normals,
+                                    std::vector<float> *texturesArray,
+                                    std::vector<float> *normalsArray
+                                    )
+{
+    int currentVertexPointer = std::stoi(verticesData[0]) - 1;
+    indices.push_back(currentVertexPointer);
+    glm::vec2 currentTex = textures[std::stoi(verticesData[1]) - 1];
+    (*texturesArray)[currentVertexPointer * 2] = currentTex.x;
+    (*texturesArray)[currentVertexPointer * 2 + 1] = 1.f - currentTex.y;
+    glm::vec3 currentNormal = normals[std::stoi(verticesData[2]) - 1];
+    (*normalsArray)[currentVertexPointer * 3] = currentNormal.x;
+    (*normalsArray)[currentVertexPointer * 3 + 1] = currentNormal.y;
+    (*normalsArray)[currentVertexPointer * 3 + 2] = currentNormal.z;
 }

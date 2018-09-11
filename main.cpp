@@ -5,15 +5,14 @@
 
 #include "Debug.hpp"
 #include "Shader.hpp"
-#include "Loader.hpp"
 #include "Renderer.hpp"
 #include "StaticShader.hpp"
 #include "Texture.hpp"
 #include "Model.hpp"
 #include "Camera.hpp"
 #include "Transform.hpp"
-#include "ObjLoader.hpp"
 #include "Transformer.hpp"
+#include "Resources.hpp"
 
 sf::Window* GetInitializedWindow()
 {
@@ -31,8 +30,7 @@ sf::Window* GetInitializedWindow()
 void CallContructorsForSingletons()
 {
     Debug::Instantiate();
-    Loader::Instantiate();
-    ObjLoader::Instantiate();
+    Resources::Instantiate();
 }
 
 int main()
@@ -47,19 +45,17 @@ int main()
 
     CallContructorsForSingletons();
 
-    Mesh *mesh = g_objLoader->LoadObjModel("stall.obj");
-    Texture *texture = new Texture(g_loader->LoadTexture("stallTexture.png"));
+    Mesh *mesh = g_resources->GetMesh("stall");
+    Texture *texture = g_resources->GetTexture("stallTexture");
     Model *model = new Model(mesh, texture);
     Transform *transform = new Transform();
 
     Renderer *renderer = new Renderer();
     Transformer *transformer = new Transformer();
 
-    elog(I, "model id: %d, model vertices: %d", mesh->vaoId(), mesh->vertexCount());
     Entity *entity = new Entity();
     entity->AddComponent(model);
     entity->AddComponent(transform);
-    elog(I, "new entity name: '%s', id: %d", entity->name().c_str(), entity->id());
 
     Camera *camera = new Camera();
 
@@ -89,13 +85,12 @@ int main()
         window->display();
     }
 
-    elog(I, "stuff here");
     delete camera;
     delete entity;
-    delete g_loader;
     delete renderer;
     delete g_debug;
     delete mesh;
     delete texture;
+    delete g_resources;
     return 0;
 }
