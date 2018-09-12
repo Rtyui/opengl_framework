@@ -9,6 +9,13 @@ Camera* Camera::active = NULL;
 Camera::Camera()
 {
     Camera::active = this;
+    m_systemTag = "FppCamera";
+}
+
+Camera::Camera(const std::string &systemTag)
+{
+    Camera::active = this;
+    m_systemTag = systemTag;
 }
 
 Camera::~Camera()
@@ -17,5 +24,5 @@ Camera::~Camera()
 
 std::string Camera::GetSystemTag()
 {
-    return "None";
+    return m_systemTag;
 }

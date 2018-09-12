@@ -64,7 +64,7 @@ void System::RegisterNewComponent(Component *component)
     }
     else
     {
-        elog(W, "No system compatible with component with id %d", component->id());
+        elog(WR, "No system compatible with component with id %d", component->id());
     }
 }
 

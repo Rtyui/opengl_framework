@@ -18,7 +18,7 @@
 #define elog(t, fmt, ...) g_debug->Log(__FILE__, __LINE__, __FUNCTION__, t, fmt, ##__VA_ARGS__)
 
 #define I Info
-#define W Warning
+#define WR Warning
 #define E Error
 
 enum DebugType

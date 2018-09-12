@@ -12,6 +12,7 @@
 #include "Camera.hpp"
 #include "Input.hpp"
 #include "Light.hpp"
+#include "FppCamera.hpp"
 
 App::App()
 {
@@ -63,6 +64,8 @@ void App::InitializeOpenGL()
     glewExperimental = GL_TRUE;
     glewInit();
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
     elog(I, "Initialized opengl!");
 }
 
@@ -78,7 +81,8 @@ void App::Run()
 
     Renderer *renderer = new Renderer();
     Transformer *transformer = new Transformer();
-    if(renderer && transformer)
+    FppCamera *fppCamera = new FppCamera();
+    if(renderer && transformer && fppCamera)
     {
     }
 
@@ -107,10 +111,8 @@ void App::Run()
         m_window->display();
     }
 
-    delete camera;
     delete object;
     delete cameraEntity;
-    //delete camera;
     System::DeleteAll();
 }
 

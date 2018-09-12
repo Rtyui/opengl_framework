@@ -45,7 +45,7 @@ protected:
                     break;
                 }
             }
-            elog(W, "Trying to process a component of other type than '%s'; removing it", typeid(T).name());
+            elog(WR, "Trying to process a component of other type than '%s'; removing it", typeid(T).name());
             return NULL;
         }
         else

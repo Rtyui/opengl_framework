@@ -23,6 +23,7 @@ private:
 public:
 
                     Camera();
+                    Camera(const std::string &systemTag);
                     ~Camera();
     std::string     GetSystemTag();
 protected:
