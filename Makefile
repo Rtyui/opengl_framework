@@ -26,6 +26,70 @@ depend: $(SRCS)
 
 # DO NOT DELETE THIS LINE -- make depend needs it
 
+Input.o: /usr/include/stdio.h /usr/include/bits/libc-header-start.h
+Input.o: /usr/include/features.h /usr/include/stdc-predef.h
+Input.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+Input.o: /usr/include/bits/long-double.h /usr/include/gnu/stubs.h
+Input.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+Input.o: /usr/include/bits/types/__FILE.h /usr/include/bits/types/FILE.h
+Input.o: /usr/include/bits/libio.h /usr/include/bits/_G_config.h
+Input.o: /usr/include/bits/types/__mbstate_t.h /usr/include/bits/stdio_lim.h
+Input.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+Input.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+Input.o: /usr/include/bits/floatn.h /usr/include/bits/floatn-common.h
+Input.o: /usr/include/sys/types.h /usr/include/bits/types/clock_t.h
+Input.o: /usr/include/bits/types/clockid_t.h /usr/include/bits/types/time_t.h
+Input.o: /usr/include/bits/types/timer_t.h /usr/include/bits/stdint-intn.h
+Input.o: /usr/include/endian.h /usr/include/bits/endian.h
+Input.o: /usr/include/bits/byteswap.h /usr/include/bits/byteswap-16.h
+Input.o: /usr/include/bits/uintn-identity.h /usr/include/sys/select.h
+Input.o: /usr/include/bits/select.h /usr/include/bits/types/sigset_t.h
+Input.o: /usr/include/bits/types/__sigset_t.h
+Input.o: /usr/include/bits/types/struct_timeval.h
+Input.o: /usr/include/bits/types/struct_timespec.h
+Input.o: /usr/include/sys/sysmacros.h /usr/include/bits/sysmacros.h
+Input.o: /usr/include/bits/pthreadtypes.h
+Input.o: /usr/include/bits/thread-shared-types.h
+Input.o: /usr/include/bits/pthreadtypes-arch.h /usr/include/alloca.h
+Input.o: /usr/include/bits/stdlib-float.h /usr/include/string.h
+Input.o: /usr/include/bits/types/locale_t.h
+Input.o: /usr/include/bits/types/__locale_t.h /usr/include/strings.h
+Input.o: Input.hpp /usr/include/SFML/Window.hpp /usr/include/SFML/System.hpp
+Input.o: /usr/include/SFML/Config.hpp /usr/include/SFML/System/Clock.hpp
+Input.o: /usr/include/SFML/System/Export.hpp
+Input.o: /usr/include/SFML/System/Time.hpp /usr/include/SFML/System/Err.hpp
+Input.o: /usr/include/SFML/System/FileInputStream.hpp
+Input.o: /usr/include/SFML/System/InputStream.hpp
+Input.o: /usr/include/SFML/System/NonCopyable.hpp
+Input.o: /usr/include/SFML/System/Lock.hpp
+Input.o: /usr/include/SFML/System/MemoryInputStream.hpp
+Input.o: /usr/include/SFML/System/Mutex.hpp
+Input.o: /usr/include/SFML/System/Sleep.hpp
+Input.o: /usr/include/SFML/System/String.hpp /usr/include/SFML/System/Utf.hpp
+Input.o: /usr/include/SFML/System/Utf.inl /usr/include/SFML/System/String.inl
+Input.o: /usr/include/SFML/System/Thread.hpp
+Input.o: /usr/include/SFML/System/Thread.inl
+Input.o: /usr/include/SFML/System/ThreadLocal.hpp
+Input.o: /usr/include/SFML/System/ThreadLocalPtr.hpp
+Input.o: /usr/include/SFML/System/ThreadLocalPtr.inl
+Input.o: /usr/include/SFML/System/Vector2.hpp
+Input.o: /usr/include/SFML/System/Vector2.inl
+Input.o: /usr/include/SFML/System/Vector3.hpp
+Input.o: /usr/include/SFML/System/Vector3.inl
+Input.o: /usr/include/SFML/Window/Context.hpp
+Input.o: /usr/include/SFML/Window/Export.hpp
+Input.o: /usr/include/SFML/Window/GlResource.hpp
+Input.o: /usr/include/SFML/Window/ContextSettings.hpp
+Input.o: /usr/include/SFML/Window/Event.hpp
+Input.o: /usr/include/SFML/Window/Joystick.hpp
+Input.o: /usr/include/SFML/Window/Keyboard.hpp
+Input.o: /usr/include/SFML/Window/Mouse.hpp
+Input.o: /usr/include/SFML/Window/Sensor.hpp
+Input.o: /usr/include/SFML/Window/Touch.hpp
+Input.o: /usr/include/SFML/Window/VideoMode.hpp
+Input.o: /usr/include/SFML/Window/Window.hpp
+Input.o: /usr/include/SFML/Window/WindowHandle.hpp
+Input.o: /usr/include/SFML/Window/WindowStyle.hpp Debug.hpp
 main.o: App.hpp /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp
 main.o: /usr/include/SFML/System/Clock.hpp
 main.o: /usr/include/SFML/System/Export.hpp /usr/include/SFML/System/Time.hpp
@@ -61,109 +125,6 @@ main.o: /usr/include/SFML/Window/VideoMode.hpp
 main.o: /usr/include/SFML/Window/Window.hpp
 main.o: /usr/include/SFML/Window/WindowHandle.hpp
 main.o: /usr/include/SFML/Window/WindowStyle.hpp
-Camera.o: Camera.hpp /usr/include/glm/glm.hpp
-Camera.o: /usr/include/glm/detail/_fixes.hpp
-Camera.o: /usr/include/glm/detail/setup.hpp /usr/include/glm/simd/platform.h
-Camera.o: /usr/include/glm/fwd.hpp /usr/include/glm/detail/type_int.hpp
-Camera.o: /usr/include/glm/detail/setup.hpp
-Camera.o: /usr/include/glm/detail/type_float.hpp
-Camera.o: /usr/include/glm/detail/type_vec.hpp
-Camera.o: /usr/include/glm/detail/qualifier.hpp
-Camera.o: /usr/include/glm/detail/type_int.hpp
-Camera.o: /usr/include/glm/detail/compute_vector_relational.hpp
-Camera.o: /usr/include/glm/detail/type_mat.hpp /usr/include/glm/vec2.hpp
-Camera.o: /usr/include/glm/detail/type_vec2.hpp
-Camera.o: /usr/include/glm/detail/type_vec.hpp
-Camera.o: /usr/include/glm/detail/type_vec2.inl /usr/include/glm/vec3.hpp
-Camera.o: /usr/include/glm/detail/type_vec3.hpp
-Camera.o: /usr/include/glm/detail/type_vec3.inl /usr/include/glm/vec4.hpp
-Camera.o: /usr/include/glm/detail/type_vec4.hpp
-Camera.o: /usr/include/glm/detail/type_vec4.inl /usr/include/glm/mat2x2.hpp
-Camera.o: /usr/include/glm/detail/type_mat2x2.hpp /usr/include/glm/fwd.hpp
-Camera.o: /usr/include/glm/detail/type_vec2.hpp
-Camera.o: /usr/include/glm/detail/type_mat.hpp
-Camera.o: /usr/include/glm/detail/type_mat2x2.inl /usr/include/glm/matrix.hpp
-Camera.o: /usr/include/glm/detail/qualifier.hpp /usr/include/glm/mat2x3.hpp
-Camera.o: /usr/include/glm/detail/type_mat2x3.hpp
-Camera.o: /usr/include/glm/detail/type_vec3.hpp
-Camera.o: /usr/include/glm/detail/type_mat2x3.inl /usr/include/glm/mat2x4.hpp
-Camera.o: /usr/include/glm/detail/type_mat2x4.hpp
-Camera.o: /usr/include/glm/detail/type_vec4.hpp
-Camera.o: /usr/include/glm/detail/type_mat2x4.inl /usr/include/glm/mat3x2.hpp
-Camera.o: /usr/include/glm/detail/type_mat3x2.hpp
-Camera.o: /usr/include/glm/detail/type_mat3x2.inl /usr/include/glm/mat3x3.hpp
-Camera.o: /usr/include/glm/detail/type_mat3x3.hpp
-Camera.o: /usr/include/glm/detail/type_mat3x3.inl /usr/include/glm/mat3x4.hpp
-Camera.o: /usr/include/glm/detail/type_mat3x4.hpp
-Camera.o: /usr/include/glm/detail/type_mat3x4.inl /usr/include/glm/mat4x2.hpp
-Camera.o: /usr/include/glm/detail/type_mat4x2.hpp
-Camera.o: /usr/include/glm/detail/type_mat4x2.inl /usr/include/glm/mat4x3.hpp
-Camera.o: /usr/include/glm/detail/type_mat4x3.hpp
-Camera.o: /usr/include/glm/detail/type_mat4x3.inl /usr/include/glm/mat4x4.hpp
-Camera.o: /usr/include/glm/detail/type_mat4x4.hpp
-Camera.o: /usr/include/glm/detail/type_mat4x4.inl
-Camera.o: /usr/include/glm/detail/type_mat4x4_simd.inl
-Camera.o: /usr/include/glm/detail/func_matrix.inl
-Camera.o: /usr/include/glm/geometric.hpp
-Camera.o: /usr/include/glm/detail/func_geometric.inl
-Camera.o: /usr/include/glm/exponential.hpp
-Camera.o: /usr/include/glm/detail/type_vec1.hpp
-Camera.o: /usr/include/glm/detail/func_exponential.inl
-Camera.o: /usr/include/glm/vector_relational.hpp
-Camera.o: /usr/include/glm/detail/func_vector_relational.inl
-Camera.o: /usr/include/glm/detail/_vectorize.hpp
-Camera.o: /usr/include/glm/detail/type_vec1.hpp /usr/include/glm/common.hpp
-Camera.o: /usr/include/glm/detail/func_common.inl
-Camera.o: /usr/include/glm/detail/type_float.hpp
-Camera.o: /usr/include/glm/trigonometric.hpp
-Camera.o: /usr/include/glm/detail/func_trigonometric.inl
-Camera.o: /usr/include/glm/exponential.hpp /usr/include/glm/common.hpp
-Camera.o: /usr/include/glm/packing.hpp
-Camera.o: /usr/include/glm/detail/func_packing.inl
-Camera.o: /usr/include/glm/detail/type_half.hpp
-Camera.o: /usr/include/glm/detail/type_half.inl
-Camera.o: /usr/include/glm/geometric.hpp /usr/include/glm/matrix.hpp
-Camera.o: /usr/include/glm/vector_relational.hpp /usr/include/glm/integer.hpp
-Camera.o: /usr/include/glm/detail/func_integer.inl
-Camera.o: /usr/include/glm/ext/vec1.hpp /usr/include/glm/detail/type_vec.hpp
-Camera.o: /usr/include/glm/detail/type_vec1.inl /usr/include/SFML/Window.hpp
-Camera.o: /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp
-Camera.o: /usr/include/SFML/System/Clock.hpp
-Camera.o: /usr/include/SFML/System/Export.hpp
-Camera.o: /usr/include/SFML/System/Time.hpp /usr/include/SFML/System/Err.hpp
-Camera.o: /usr/include/SFML/System/FileInputStream.hpp
-Camera.o: /usr/include/SFML/System/InputStream.hpp
-Camera.o: /usr/include/SFML/System/NonCopyable.hpp
-Camera.o: /usr/include/SFML/System/Lock.hpp
-Camera.o: /usr/include/SFML/System/MemoryInputStream.hpp
-Camera.o: /usr/include/SFML/System/Mutex.hpp
-Camera.o: /usr/include/SFML/System/Sleep.hpp
-Camera.o: /usr/include/SFML/System/String.hpp
-Camera.o: /usr/include/SFML/System/Utf.hpp /usr/include/SFML/System/Utf.inl
-Camera.o: /usr/include/SFML/System/String.inl
-Camera.o: /usr/include/SFML/System/Thread.hpp
-Camera.o: /usr/include/SFML/System/Thread.inl
-Camera.o: /usr/include/SFML/System/ThreadLocal.hpp
-Camera.o: /usr/include/SFML/System/ThreadLocalPtr.hpp
-Camera.o: /usr/include/SFML/System/ThreadLocalPtr.inl
-Camera.o: /usr/include/SFML/System/Vector2.hpp
-Camera.o: /usr/include/SFML/System/Vector2.inl
-Camera.o: /usr/include/SFML/System/Vector3.hpp
-Camera.o: /usr/include/SFML/System/Vector3.inl
-Camera.o: /usr/include/SFML/Window/Context.hpp
-Camera.o: /usr/include/SFML/Window/Export.hpp
-Camera.o: /usr/include/SFML/Window/GlResource.hpp
-Camera.o: /usr/include/SFML/Window/ContextSettings.hpp
-Camera.o: /usr/include/SFML/Window/Event.hpp
-Camera.o: /usr/include/SFML/Window/Joystick.hpp
-Camera.o: /usr/include/SFML/Window/Keyboard.hpp
-Camera.o: /usr/include/SFML/Window/Mouse.hpp
-Camera.o: /usr/include/SFML/Window/Sensor.hpp
-Camera.o: /usr/include/SFML/Window/Touch.hpp
-Camera.o: /usr/include/SFML/Window/VideoMode.hpp
-Camera.o: /usr/include/SFML/Window/Window.hpp
-Camera.o: /usr/include/SFML/Window/WindowHandle.hpp
-Camera.o: /usr/include/SFML/Window/WindowStyle.hpp
 Debug.o: Debug.hpp /usr/include/string.h
 Debug.o: /usr/include/bits/libc-header-start.h /usr/include/features.h
 Debug.o: /usr/include/stdc-predef.h /usr/include/sys/cdefs.h
@@ -171,6 +132,109 @@ Debug.o: /usr/include/bits/wordsize.h /usr/include/bits/long-double.h
 Debug.o: /usr/include/gnu/stubs.h /usr/include/bits/types/locale_t.h
 Debug.o: /usr/include/bits/types/__locale_t.h /usr/include/strings.h
 Debug.o: Utilities.hpp
+Debug.o: /home/cipsi/Personal/opengl_framework/components/Camera.hpp
+Debug.o: /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp
+Debug.o: /usr/include/glm/detail/setup.hpp /usr/include/glm/simd/platform.h
+Debug.o: /usr/include/glm/fwd.hpp /usr/include/glm/detail/type_int.hpp
+Debug.o: /usr/include/glm/detail/setup.hpp
+Debug.o: /usr/include/glm/detail/type_float.hpp
+Debug.o: /usr/include/glm/detail/type_vec.hpp
+Debug.o: /usr/include/glm/detail/qualifier.hpp
+Debug.o: /usr/include/glm/detail/type_int.hpp
+Debug.o: /usr/include/glm/detail/compute_vector_relational.hpp
+Debug.o: /usr/include/glm/detail/type_mat.hpp /usr/include/glm/vec2.hpp
+Debug.o: /usr/include/glm/detail/type_vec2.hpp
+Debug.o: /usr/include/glm/detail/type_vec.hpp
+Debug.o: /usr/include/glm/detail/type_vec2.inl /usr/include/glm/vec3.hpp
+Debug.o: /usr/include/glm/detail/type_vec3.hpp
+Debug.o: /usr/include/glm/detail/type_vec3.inl /usr/include/glm/vec4.hpp
+Debug.o: /usr/include/glm/detail/type_vec4.hpp
+Debug.o: /usr/include/glm/detail/type_vec4.inl /usr/include/glm/mat2x2.hpp
+Debug.o: /usr/include/glm/detail/type_mat2x2.hpp /usr/include/glm/fwd.hpp
+Debug.o: /usr/include/glm/detail/type_vec2.hpp
+Debug.o: /usr/include/glm/detail/type_mat.hpp
+Debug.o: /usr/include/glm/detail/type_mat2x2.inl /usr/include/glm/matrix.hpp
+Debug.o: /usr/include/glm/detail/qualifier.hpp /usr/include/glm/mat2x3.hpp
+Debug.o: /usr/include/glm/detail/type_mat2x3.hpp
+Debug.o: /usr/include/glm/detail/type_vec3.hpp
+Debug.o: /usr/include/glm/detail/type_mat2x3.inl /usr/include/glm/mat2x4.hpp
+Debug.o: /usr/include/glm/detail/type_mat2x4.hpp
+Debug.o: /usr/include/glm/detail/type_vec4.hpp
+Debug.o: /usr/include/glm/detail/type_mat2x4.inl /usr/include/glm/mat3x2.hpp
+Debug.o: /usr/include/glm/detail/type_mat3x2.hpp
+Debug.o: /usr/include/glm/detail/type_mat3x2.inl /usr/include/glm/mat3x3.hpp
+Debug.o: /usr/include/glm/detail/type_mat3x3.hpp
+Debug.o: /usr/include/glm/detail/type_mat3x3.inl /usr/include/glm/mat3x4.hpp
+Debug.o: /usr/include/glm/detail/type_mat3x4.hpp
+Debug.o: /usr/include/glm/detail/type_mat3x4.inl /usr/include/glm/mat4x2.hpp
+Debug.o: /usr/include/glm/detail/type_mat4x2.hpp
+Debug.o: /usr/include/glm/detail/type_mat4x2.inl /usr/include/glm/mat4x3.hpp
+Debug.o: /usr/include/glm/detail/type_mat4x3.hpp
+Debug.o: /usr/include/glm/detail/type_mat4x3.inl /usr/include/glm/mat4x4.hpp
+Debug.o: /usr/include/glm/detail/type_mat4x4.hpp
+Debug.o: /usr/include/glm/detail/type_mat4x4.inl
+Debug.o: /usr/include/glm/detail/type_mat4x4_simd.inl
+Debug.o: /usr/include/glm/detail/func_matrix.inl
+Debug.o: /usr/include/glm/geometric.hpp
+Debug.o: /usr/include/glm/detail/func_geometric.inl
+Debug.o: /usr/include/glm/exponential.hpp
+Debug.o: /usr/include/glm/detail/type_vec1.hpp
+Debug.o: /usr/include/glm/detail/func_exponential.inl
+Debug.o: /usr/include/glm/vector_relational.hpp
+Debug.o: /usr/include/glm/detail/func_vector_relational.inl
+Debug.o: /usr/include/glm/detail/_vectorize.hpp
+Debug.o: /usr/include/glm/detail/type_vec1.hpp /usr/include/glm/common.hpp
+Debug.o: /usr/include/glm/detail/func_common.inl
+Debug.o: /usr/include/glm/detail/type_float.hpp
+Debug.o: /usr/include/glm/trigonometric.hpp
+Debug.o: /usr/include/glm/detail/func_trigonometric.inl
+Debug.o: /usr/include/glm/exponential.hpp /usr/include/glm/common.hpp
+Debug.o: /usr/include/glm/packing.hpp
+Debug.o: /usr/include/glm/detail/func_packing.inl
+Debug.o: /usr/include/glm/detail/type_half.hpp
+Debug.o: /usr/include/glm/detail/type_half.inl /usr/include/glm/geometric.hpp
+Debug.o: /usr/include/glm/matrix.hpp /usr/include/glm/vector_relational.hpp
+Debug.o: /usr/include/glm/integer.hpp
+Debug.o: /usr/include/glm/detail/func_integer.inl
+Debug.o: /usr/include/glm/ext/vec1.hpp /usr/include/glm/detail/type_vec.hpp
+Debug.o: /usr/include/glm/detail/type_vec1.inl /usr/include/SFML/Window.hpp
+Debug.o: /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp
+Debug.o: /usr/include/SFML/System/Clock.hpp
+Debug.o: /usr/include/SFML/System/Export.hpp
+Debug.o: /usr/include/SFML/System/Time.hpp /usr/include/SFML/System/Err.hpp
+Debug.o: /usr/include/SFML/System/FileInputStream.hpp
+Debug.o: /usr/include/SFML/System/InputStream.hpp
+Debug.o: /usr/include/SFML/System/NonCopyable.hpp
+Debug.o: /usr/include/SFML/System/Lock.hpp
+Debug.o: /usr/include/SFML/System/MemoryInputStream.hpp
+Debug.o: /usr/include/SFML/System/Mutex.hpp
+Debug.o: /usr/include/SFML/System/Sleep.hpp
+Debug.o: /usr/include/SFML/System/String.hpp /usr/include/SFML/System/Utf.hpp
+Debug.o: /usr/include/SFML/System/Utf.inl /usr/include/SFML/System/String.inl
+Debug.o: /usr/include/SFML/System/Thread.hpp
+Debug.o: /usr/include/SFML/System/Thread.inl
+Debug.o: /usr/include/SFML/System/ThreadLocal.hpp
+Debug.o: /usr/include/SFML/System/ThreadLocalPtr.hpp
+Debug.o: /usr/include/SFML/System/ThreadLocalPtr.inl
+Debug.o: /usr/include/SFML/System/Vector2.hpp
+Debug.o: /usr/include/SFML/System/Vector2.inl
+Debug.o: /usr/include/SFML/System/Vector3.hpp
+Debug.o: /usr/include/SFML/System/Vector3.inl
+Debug.o: /usr/include/SFML/Window/Context.hpp
+Debug.o: /usr/include/SFML/Window/Export.hpp
+Debug.o: /usr/include/SFML/Window/GlResource.hpp
+Debug.o: /usr/include/SFML/Window/ContextSettings.hpp
+Debug.o: /usr/include/SFML/Window/Event.hpp
+Debug.o: /usr/include/SFML/Window/Joystick.hpp
+Debug.o: /usr/include/SFML/Window/Keyboard.hpp
+Debug.o: /usr/include/SFML/Window/Mouse.hpp
+Debug.o: /usr/include/SFML/Window/Sensor.hpp
+Debug.o: /usr/include/SFML/Window/Touch.hpp
+Debug.o: /usr/include/SFML/Window/VideoMode.hpp
+Debug.o: /usr/include/SFML/Window/Window.hpp
+Debug.o: /usr/include/SFML/Window/WindowHandle.hpp
+Debug.o: /usr/include/SFML/Window/WindowStyle.hpp
+Debug.o: /home/cipsi/Personal/opengl_framework/components/Component.hpp
 Resources.o: /usr/include/boost/filesystem.hpp
 Resources.o: /usr/include/boost/filesystem/config.hpp
 Resources.o: /usr/include/boost/config.hpp /usr/include/boost/config/user.hpp
@@ -696,6 +760,47 @@ Resources.o: /usr/include/glm/detail/func_integer.inl
 Resources.o: /usr/include/glm/ext/vec1.hpp
 Resources.o: /usr/include/glm/detail/type_vec.hpp
 Resources.o: /usr/include/glm/detail/type_vec1.inl Debug.hpp Utilities.hpp
+Resources.o: /home/cipsi/Personal/opengl_framework/components/Camera.hpp
+Resources.o: /usr/include/SFML/Window.hpp /usr/include/SFML/System.hpp
+Resources.o: /usr/include/SFML/Config.hpp /usr/include/SFML/System/Clock.hpp
+Resources.o: /usr/include/SFML/System/Export.hpp
+Resources.o: /usr/include/SFML/System/Time.hpp
+Resources.o: /usr/include/SFML/System/Err.hpp
+Resources.o: /usr/include/SFML/System/FileInputStream.hpp
+Resources.o: /usr/include/SFML/System/InputStream.hpp
+Resources.o: /usr/include/SFML/System/NonCopyable.hpp
+Resources.o: /usr/include/SFML/System/Lock.hpp
+Resources.o: /usr/include/SFML/System/MemoryInputStream.hpp
+Resources.o: /usr/include/SFML/System/Mutex.hpp
+Resources.o: /usr/include/SFML/System/Sleep.hpp
+Resources.o: /usr/include/SFML/System/String.hpp
+Resources.o: /usr/include/SFML/System/Utf.hpp
+Resources.o: /usr/include/SFML/System/Utf.inl
+Resources.o: /usr/include/SFML/System/String.inl
+Resources.o: /usr/include/SFML/System/Thread.hpp
+Resources.o: /usr/include/SFML/System/Thread.inl
+Resources.o: /usr/include/SFML/System/ThreadLocal.hpp
+Resources.o: /usr/include/SFML/System/ThreadLocalPtr.hpp
+Resources.o: /usr/include/SFML/System/ThreadLocalPtr.inl
+Resources.o: /usr/include/SFML/System/Vector2.hpp
+Resources.o: /usr/include/SFML/System/Vector2.inl
+Resources.o: /usr/include/SFML/System/Vector3.hpp
+Resources.o: /usr/include/SFML/System/Vector3.inl
+Resources.o: /usr/include/SFML/Window/Context.hpp
+Resources.o: /usr/include/SFML/Window/Export.hpp
+Resources.o: /usr/include/SFML/Window/GlResource.hpp
+Resources.o: /usr/include/SFML/Window/ContextSettings.hpp
+Resources.o: /usr/include/SFML/Window/Event.hpp
+Resources.o: /usr/include/SFML/Window/Joystick.hpp
+Resources.o: /usr/include/SFML/Window/Keyboard.hpp
+Resources.o: /usr/include/SFML/Window/Mouse.hpp
+Resources.o: /usr/include/SFML/Window/Sensor.hpp
+Resources.o: /usr/include/SFML/Window/Touch.hpp
+Resources.o: /usr/include/SFML/Window/VideoMode.hpp
+Resources.o: /usr/include/SFML/Window/Window.hpp
+Resources.o: /usr/include/SFML/Window/WindowHandle.hpp
+Resources.o: /usr/include/SFML/Window/WindowStyle.hpp
+Resources.o: /home/cipsi/Personal/opengl_framework/components/Component.hpp
 systems/Renderer.o: /usr/include/GL/glew.h /usr/include/stdint.h
 systems/Renderer.o: /usr/include/bits/libc-header-start.h
 systems/Renderer.o: /usr/include/features.h /usr/include/stdc-predef.h
@@ -808,7 +913,8 @@ systems/Renderer.o: /home/cipsi/Personal/opengl_framework/entities/Entity.hpp
 systems/Renderer.o: Debug.hpp
 systems/Renderer.o: /home/cipsi/Personal/opengl_framework/shaders/StaticShader.hpp
 systems/Renderer.o: /home/cipsi/Personal/opengl_framework/shaders/Shader.hpp
-systems/Renderer.o: systems/System.hpp Camera.hpp
+systems/Renderer.o: Light.hpp systems/System.hpp
+systems/Renderer.o: /home/cipsi/Personal/opengl_framework/components/Camera.hpp
 systems/Renderer.o: /usr/include/SFML/Window.hpp /usr/include/SFML/System.hpp
 systems/Renderer.o: /usr/include/SFML/Config.hpp
 systems/Renderer.o: /usr/include/SFML/System/Clock.hpp
@@ -850,6 +956,7 @@ systems/Renderer.o: /usr/include/SFML/Window/Window.hpp
 systems/Renderer.o: /usr/include/SFML/Window/WindowHandle.hpp
 systems/Renderer.o: /usr/include/SFML/Window/WindowStyle.hpp
 systems/Renderer.o: /home/cipsi/Personal/opengl_framework/components/Transform.hpp
+systems/Renderer.o: Utilities.hpp
 systems/Transformer.o: systems/Transformer.hpp systems/System.hpp
 systems/Transformer.o: /home/cipsi/Personal/opengl_framework/components/Component.hpp
 systems/Transformer.o: Debug.hpp
@@ -1040,7 +1147,219 @@ systems/System.o: /usr/include/glm/detail/func_integer.inl
 systems/System.o: /usr/include/glm/ext/vec1.hpp
 systems/System.o: /usr/include/glm/detail/type_vec.hpp
 systems/System.o: /usr/include/glm/detail/type_vec1.inl
-Utilities.o: Utilities.hpp
+Utilities.o: /usr/include/glm/gtx/rotate_vector.hpp /usr/include/glm/glm.hpp
+Utilities.o: /usr/include/glm/detail/_fixes.hpp
+Utilities.o: /usr/include/glm/detail/setup.hpp
+Utilities.o: /usr/include/glm/simd/platform.h /usr/include/glm/fwd.hpp
+Utilities.o: /usr/include/glm/detail/type_int.hpp
+Utilities.o: /usr/include/glm/detail/setup.hpp
+Utilities.o: /usr/include/glm/detail/type_float.hpp
+Utilities.o: /usr/include/glm/detail/type_vec.hpp
+Utilities.o: /usr/include/glm/detail/qualifier.hpp
+Utilities.o: /usr/include/glm/detail/type_int.hpp
+Utilities.o: /usr/include/glm/detail/compute_vector_relational.hpp
+Utilities.o: /usr/include/glm/detail/type_mat.hpp /usr/include/glm/vec2.hpp
+Utilities.o: /usr/include/glm/detail/type_vec2.hpp
+Utilities.o: /usr/include/glm/detail/type_vec.hpp
+Utilities.o: /usr/include/glm/detail/type_vec2.inl /usr/include/glm/vec3.hpp
+Utilities.o: /usr/include/glm/detail/type_vec3.hpp
+Utilities.o: /usr/include/glm/detail/type_vec3.inl /usr/include/glm/vec4.hpp
+Utilities.o: /usr/include/glm/detail/type_vec4.hpp
+Utilities.o: /usr/include/glm/detail/type_vec4.inl
+Utilities.o: /usr/include/glm/mat2x2.hpp
+Utilities.o: /usr/include/glm/detail/type_mat2x2.hpp /usr/include/glm/fwd.hpp
+Utilities.o: /usr/include/glm/detail/type_vec2.hpp
+Utilities.o: /usr/include/glm/detail/type_mat.hpp
+Utilities.o: /usr/include/glm/detail/type_mat2x2.inl
+Utilities.o: /usr/include/glm/matrix.hpp
+Utilities.o: /usr/include/glm/detail/qualifier.hpp
+Utilities.o: /usr/include/glm/mat2x3.hpp
+Utilities.o: /usr/include/glm/detail/type_mat2x3.hpp
+Utilities.o: /usr/include/glm/detail/type_vec3.hpp
+Utilities.o: /usr/include/glm/detail/type_mat2x3.inl
+Utilities.o: /usr/include/glm/mat2x4.hpp
+Utilities.o: /usr/include/glm/detail/type_mat2x4.hpp
+Utilities.o: /usr/include/glm/detail/type_vec4.hpp
+Utilities.o: /usr/include/glm/detail/type_mat2x4.inl
+Utilities.o: /usr/include/glm/mat3x2.hpp
+Utilities.o: /usr/include/glm/detail/type_mat3x2.hpp
+Utilities.o: /usr/include/glm/detail/type_mat3x2.inl
+Utilities.o: /usr/include/glm/mat3x3.hpp
+Utilities.o: /usr/include/glm/detail/type_mat3x3.hpp
+Utilities.o: /usr/include/glm/detail/type_mat3x3.inl
+Utilities.o: /usr/include/glm/mat3x4.hpp
+Utilities.o: /usr/include/glm/detail/type_mat3x4.hpp
+Utilities.o: /usr/include/glm/detail/type_mat3x4.inl
+Utilities.o: /usr/include/glm/mat4x2.hpp
+Utilities.o: /usr/include/glm/detail/type_mat4x2.hpp
+Utilities.o: /usr/include/glm/detail/type_mat4x2.inl
+Utilities.o: /usr/include/glm/mat4x3.hpp
+Utilities.o: /usr/include/glm/detail/type_mat4x3.hpp
+Utilities.o: /usr/include/glm/detail/type_mat4x3.inl
+Utilities.o: /usr/include/glm/mat4x4.hpp
+Utilities.o: /usr/include/glm/detail/type_mat4x4.hpp
+Utilities.o: /usr/include/glm/detail/type_mat4x4.inl
+Utilities.o: /usr/include/glm/detail/type_mat4x4_simd.inl
+Utilities.o: /usr/include/glm/detail/func_matrix.inl
+Utilities.o: /usr/include/glm/geometric.hpp
+Utilities.o: /usr/include/glm/detail/func_geometric.inl
+Utilities.o: /usr/include/glm/exponential.hpp
+Utilities.o: /usr/include/glm/detail/type_vec1.hpp
+Utilities.o: /usr/include/glm/detail/func_exponential.inl
+Utilities.o: /usr/include/glm/vector_relational.hpp
+Utilities.o: /usr/include/glm/detail/func_vector_relational.inl
+Utilities.o: /usr/include/glm/detail/_vectorize.hpp
+Utilities.o: /usr/include/glm/detail/type_vec1.hpp
+Utilities.o: /usr/include/glm/common.hpp
+Utilities.o: /usr/include/glm/detail/func_common.inl
+Utilities.o: /usr/include/glm/detail/type_float.hpp
+Utilities.o: /usr/include/glm/trigonometric.hpp
+Utilities.o: /usr/include/glm/detail/func_trigonometric.inl
+Utilities.o: /usr/include/glm/exponential.hpp /usr/include/glm/common.hpp
+Utilities.o: /usr/include/glm/packing.hpp
+Utilities.o: /usr/include/glm/detail/func_packing.inl
+Utilities.o: /usr/include/glm/detail/type_half.hpp
+Utilities.o: /usr/include/glm/detail/type_half.inl
+Utilities.o: /usr/include/glm/geometric.hpp /usr/include/glm/matrix.hpp
+Utilities.o: /usr/include/glm/vector_relational.hpp
+Utilities.o: /usr/include/glm/integer.hpp
+Utilities.o: /usr/include/glm/detail/func_integer.inl
+Utilities.o: /usr/include/glm/ext/vec1.hpp
+Utilities.o: /usr/include/glm/detail/type_vec.hpp
+Utilities.o: /usr/include/glm/detail/type_vec1.inl
+Utilities.o: /usr/include/glm/gtx/transform.hpp
+Utilities.o: /usr/include/glm/gtc/matrix_transform.hpp
+Utilities.o: /usr/include/glm/mat4x4.hpp /usr/include/glm/vec2.hpp
+Utilities.o: /usr/include/glm/vec3.hpp /usr/include/glm/vec4.hpp
+Utilities.o: /usr/include/glm/gtc/constants.hpp
+Utilities.o: /usr/include/glm/detail/setup.hpp
+Utilities.o: /usr/include/glm/gtc/constants.inl
+Utilities.o: /usr/include/glm/gtc/matrix_transform.inl
+Utilities.o: /usr/include/glm/trigonometric.hpp
+Utilities.o: /usr/include/glm/gtx/transform.inl
+Utilities.o: /usr/include/glm/gtx/rotate_vector.inl Utilities.hpp
+Utilities.o: /home/cipsi/Personal/opengl_framework/components/Camera.hpp
+Utilities.o: /usr/include/glm/glm.hpp /usr/include/SFML/Window.hpp
+Utilities.o: /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp
+Utilities.o: /usr/include/SFML/System/Clock.hpp
+Utilities.o: /usr/include/SFML/System/Export.hpp
+Utilities.o: /usr/include/SFML/System/Time.hpp
+Utilities.o: /usr/include/SFML/System/Err.hpp
+Utilities.o: /usr/include/SFML/System/FileInputStream.hpp
+Utilities.o: /usr/include/SFML/System/InputStream.hpp
+Utilities.o: /usr/include/SFML/System/NonCopyable.hpp
+Utilities.o: /usr/include/SFML/System/Lock.hpp
+Utilities.o: /usr/include/SFML/System/MemoryInputStream.hpp
+Utilities.o: /usr/include/SFML/System/Mutex.hpp
+Utilities.o: /usr/include/SFML/System/Sleep.hpp
+Utilities.o: /usr/include/SFML/System/String.hpp
+Utilities.o: /usr/include/SFML/System/Utf.hpp
+Utilities.o: /usr/include/SFML/System/Utf.inl
+Utilities.o: /usr/include/SFML/System/String.inl
+Utilities.o: /usr/include/SFML/System/Thread.hpp
+Utilities.o: /usr/include/SFML/System/Thread.inl
+Utilities.o: /usr/include/SFML/System/ThreadLocal.hpp
+Utilities.o: /usr/include/SFML/System/ThreadLocalPtr.hpp
+Utilities.o: /usr/include/SFML/System/ThreadLocalPtr.inl
+Utilities.o: /usr/include/SFML/System/Vector2.hpp
+Utilities.o: /usr/include/SFML/System/Vector2.inl
+Utilities.o: /usr/include/SFML/System/Vector3.hpp
+Utilities.o: /usr/include/SFML/System/Vector3.inl
+Utilities.o: /usr/include/SFML/Window/Context.hpp
+Utilities.o: /usr/include/SFML/Window/Export.hpp
+Utilities.o: /usr/include/SFML/Window/GlResource.hpp
+Utilities.o: /usr/include/SFML/Window/ContextSettings.hpp
+Utilities.o: /usr/include/SFML/Window/Event.hpp
+Utilities.o: /usr/include/SFML/Window/Joystick.hpp
+Utilities.o: /usr/include/SFML/Window/Keyboard.hpp
+Utilities.o: /usr/include/SFML/Window/Mouse.hpp
+Utilities.o: /usr/include/SFML/Window/Sensor.hpp
+Utilities.o: /usr/include/SFML/Window/Touch.hpp
+Utilities.o: /usr/include/SFML/Window/VideoMode.hpp
+Utilities.o: /usr/include/SFML/Window/Window.hpp
+Utilities.o: /usr/include/SFML/Window/WindowHandle.hpp
+Utilities.o: /usr/include/SFML/Window/WindowStyle.hpp
+Utilities.o: /home/cipsi/Personal/opengl_framework/components/Component.hpp
+Utilities.o: /home/cipsi/Personal/opengl_framework/entities/Entity.hpp
+Utilities.o: /home/cipsi/Personal/opengl_framework/components/Model.hpp
+Utilities.o: /home/cipsi/Personal/opengl_framework/components/Mesh.hpp
+Utilities.o: /usr/include/GL/glew.h /usr/include/stdint.h
+Utilities.o: /usr/include/bits/libc-header-start.h /usr/include/features.h
+Utilities.o: /usr/include/stdc-predef.h /usr/include/sys/cdefs.h
+Utilities.o: /usr/include/bits/wordsize.h /usr/include/bits/long-double.h
+Utilities.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+Utilities.o: /usr/include/bits/typesizes.h /usr/include/bits/wchar.h
+Utilities.o: /usr/include/bits/stdint-intn.h /usr/include/bits/stdint-uintn.h
+Utilities.o: /usr/include/GL/glu.h /usr/include/GL/gl.h
+Utilities.o: /home/cipsi/Personal/opengl_framework/components/Texture.hpp
+Utilities.o: Debug.hpp
+Utilities.o: /home/cipsi/Personal/opengl_framework/components/Transform.hpp
+Light.o: Light.hpp /usr/include/glm/glm.hpp
+Light.o: /usr/include/glm/detail/_fixes.hpp /usr/include/glm/detail/setup.hpp
+Light.o: /usr/include/glm/simd/platform.h /usr/include/glm/fwd.hpp
+Light.o: /usr/include/glm/detail/type_int.hpp
+Light.o: /usr/include/glm/detail/setup.hpp
+Light.o: /usr/include/glm/detail/type_float.hpp
+Light.o: /usr/include/glm/detail/type_vec.hpp
+Light.o: /usr/include/glm/detail/qualifier.hpp
+Light.o: /usr/include/glm/detail/type_int.hpp
+Light.o: /usr/include/glm/detail/compute_vector_relational.hpp
+Light.o: /usr/include/glm/detail/type_mat.hpp /usr/include/glm/vec2.hpp
+Light.o: /usr/include/glm/detail/type_vec2.hpp
+Light.o: /usr/include/glm/detail/type_vec.hpp
+Light.o: /usr/include/glm/detail/type_vec2.inl /usr/include/glm/vec3.hpp
+Light.o: /usr/include/glm/detail/type_vec3.hpp
+Light.o: /usr/include/glm/detail/type_vec3.inl /usr/include/glm/vec4.hpp
+Light.o: /usr/include/glm/detail/type_vec4.hpp
+Light.o: /usr/include/glm/detail/type_vec4.inl /usr/include/glm/mat2x2.hpp
+Light.o: /usr/include/glm/detail/type_mat2x2.hpp /usr/include/glm/fwd.hpp
+Light.o: /usr/include/glm/detail/type_vec2.hpp
+Light.o: /usr/include/glm/detail/type_mat.hpp
+Light.o: /usr/include/glm/detail/type_mat2x2.inl /usr/include/glm/matrix.hpp
+Light.o: /usr/include/glm/detail/qualifier.hpp /usr/include/glm/mat2x3.hpp
+Light.o: /usr/include/glm/detail/type_mat2x3.hpp
+Light.o: /usr/include/glm/detail/type_vec3.hpp
+Light.o: /usr/include/glm/detail/type_mat2x3.inl /usr/include/glm/mat2x4.hpp
+Light.o: /usr/include/glm/detail/type_mat2x4.hpp
+Light.o: /usr/include/glm/detail/type_vec4.hpp
+Light.o: /usr/include/glm/detail/type_mat2x4.inl /usr/include/glm/mat3x2.hpp
+Light.o: /usr/include/glm/detail/type_mat3x2.hpp
+Light.o: /usr/include/glm/detail/type_mat3x2.inl /usr/include/glm/mat3x3.hpp
+Light.o: /usr/include/glm/detail/type_mat3x3.hpp
+Light.o: /usr/include/glm/detail/type_mat3x3.inl /usr/include/glm/mat3x4.hpp
+Light.o: /usr/include/glm/detail/type_mat3x4.hpp
+Light.o: /usr/include/glm/detail/type_mat3x4.inl /usr/include/glm/mat4x2.hpp
+Light.o: /usr/include/glm/detail/type_mat4x2.hpp
+Light.o: /usr/include/glm/detail/type_mat4x2.inl /usr/include/glm/mat4x3.hpp
+Light.o: /usr/include/glm/detail/type_mat4x3.hpp
+Light.o: /usr/include/glm/detail/type_mat4x3.inl /usr/include/glm/mat4x4.hpp
+Light.o: /usr/include/glm/detail/type_mat4x4.hpp
+Light.o: /usr/include/glm/detail/type_mat4x4.inl
+Light.o: /usr/include/glm/detail/type_mat4x4_simd.inl
+Light.o: /usr/include/glm/detail/func_matrix.inl
+Light.o: /usr/include/glm/geometric.hpp
+Light.o: /usr/include/glm/detail/func_geometric.inl
+Light.o: /usr/include/glm/exponential.hpp
+Light.o: /usr/include/glm/detail/type_vec1.hpp
+Light.o: /usr/include/glm/detail/func_exponential.inl
+Light.o: /usr/include/glm/vector_relational.hpp
+Light.o: /usr/include/glm/detail/func_vector_relational.inl
+Light.o: /usr/include/glm/detail/_vectorize.hpp
+Light.o: /usr/include/glm/detail/type_vec1.hpp /usr/include/glm/common.hpp
+Light.o: /usr/include/glm/detail/func_common.inl
+Light.o: /usr/include/glm/detail/type_float.hpp
+Light.o: /usr/include/glm/trigonometric.hpp
+Light.o: /usr/include/glm/detail/func_trigonometric.inl
+Light.o: /usr/include/glm/exponential.hpp /usr/include/glm/common.hpp
+Light.o: /usr/include/glm/packing.hpp
+Light.o: /usr/include/glm/detail/func_packing.inl
+Light.o: /usr/include/glm/detail/type_half.hpp
+Light.o: /usr/include/glm/detail/type_half.inl /usr/include/glm/geometric.hpp
+Light.o: /usr/include/glm/matrix.hpp /usr/include/glm/vector_relational.hpp
+Light.o: /usr/include/glm/integer.hpp
+Light.o: /usr/include/glm/detail/func_integer.inl
+Light.o: /usr/include/glm/ext/vec1.hpp /usr/include/glm/detail/type_vec.hpp
+Light.o: /usr/include/glm/detail/type_vec1.inl
 entities/Entity.o: /home/cipsi/Personal/opengl_framework/entities/Entity.hpp
 entities/Entity.o: /usr/include/glm/glm.hpp
 entities/Entity.o: /usr/include/glm/detail/_fixes.hpp
@@ -1151,6 +1470,135 @@ components/Mesh.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
 components/Mesh.o: /usr/include/bits/wchar.h /usr/include/bits/stdint-intn.h
 components/Mesh.o: /usr/include/bits/stdint-uintn.h /usr/include/GL/glu.h
 components/Mesh.o: /usr/include/GL/gl.h
+components/Camera.o: /home/cipsi/Personal/opengl_framework/components/Camera.hpp
+components/Camera.o: /usr/include/glm/glm.hpp
+components/Camera.o: /usr/include/glm/detail/_fixes.hpp
+components/Camera.o: /usr/include/glm/detail/setup.hpp
+components/Camera.o: /usr/include/glm/simd/platform.h
+components/Camera.o: /usr/include/glm/fwd.hpp
+components/Camera.o: /usr/include/glm/detail/type_int.hpp
+components/Camera.o: /usr/include/glm/detail/setup.hpp
+components/Camera.o: /usr/include/glm/detail/type_float.hpp
+components/Camera.o: /usr/include/glm/detail/type_vec.hpp
+components/Camera.o: /usr/include/glm/detail/qualifier.hpp
+components/Camera.o: /usr/include/glm/detail/type_int.hpp
+components/Camera.o: /usr/include/glm/detail/compute_vector_relational.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat.hpp
+components/Camera.o: /usr/include/glm/vec2.hpp
+components/Camera.o: /usr/include/glm/detail/type_vec2.hpp
+components/Camera.o: /usr/include/glm/detail/type_vec.hpp
+components/Camera.o: /usr/include/glm/detail/type_vec2.inl
+components/Camera.o: /usr/include/glm/vec3.hpp
+components/Camera.o: /usr/include/glm/detail/type_vec3.hpp
+components/Camera.o: /usr/include/glm/detail/type_vec3.inl
+components/Camera.o: /usr/include/glm/vec4.hpp
+components/Camera.o: /usr/include/glm/detail/type_vec4.hpp
+components/Camera.o: /usr/include/glm/detail/type_vec4.inl
+components/Camera.o: /usr/include/glm/mat2x2.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat2x2.hpp
+components/Camera.o: /usr/include/glm/fwd.hpp
+components/Camera.o: /usr/include/glm/detail/type_vec2.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat2x2.inl
+components/Camera.o: /usr/include/glm/matrix.hpp
+components/Camera.o: /usr/include/glm/detail/qualifier.hpp
+components/Camera.o: /usr/include/glm/mat2x3.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat2x3.hpp
+components/Camera.o: /usr/include/glm/detail/type_vec3.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat2x3.inl
+components/Camera.o: /usr/include/glm/mat2x4.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat2x4.hpp
+components/Camera.o: /usr/include/glm/detail/type_vec4.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat2x4.inl
+components/Camera.o: /usr/include/glm/mat3x2.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat3x2.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat3x2.inl
+components/Camera.o: /usr/include/glm/mat3x3.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat3x3.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat3x3.inl
+components/Camera.o: /usr/include/glm/mat3x4.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat3x4.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat3x4.inl
+components/Camera.o: /usr/include/glm/mat4x2.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat4x2.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat4x2.inl
+components/Camera.o: /usr/include/glm/mat4x3.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat4x3.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat4x3.inl
+components/Camera.o: /usr/include/glm/mat4x4.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat4x4.hpp
+components/Camera.o: /usr/include/glm/detail/type_mat4x4.inl
+components/Camera.o: /usr/include/glm/detail/type_mat4x4_simd.inl
+components/Camera.o: /usr/include/glm/detail/func_matrix.inl
+components/Camera.o: /usr/include/glm/geometric.hpp
+components/Camera.o: /usr/include/glm/detail/func_geometric.inl
+components/Camera.o: /usr/include/glm/exponential.hpp
+components/Camera.o: /usr/include/glm/detail/type_vec1.hpp
+components/Camera.o: /usr/include/glm/detail/func_exponential.inl
+components/Camera.o: /usr/include/glm/vector_relational.hpp
+components/Camera.o: /usr/include/glm/detail/func_vector_relational.inl
+components/Camera.o: /usr/include/glm/detail/_vectorize.hpp
+components/Camera.o: /usr/include/glm/detail/type_vec1.hpp
+components/Camera.o: /usr/include/glm/common.hpp
+components/Camera.o: /usr/include/glm/detail/func_common.inl
+components/Camera.o: /usr/include/glm/detail/type_float.hpp
+components/Camera.o: /usr/include/glm/trigonometric.hpp
+components/Camera.o: /usr/include/glm/detail/func_trigonometric.inl
+components/Camera.o: /usr/include/glm/exponential.hpp
+components/Camera.o: /usr/include/glm/common.hpp /usr/include/glm/packing.hpp
+components/Camera.o: /usr/include/glm/detail/func_packing.inl
+components/Camera.o: /usr/include/glm/detail/type_half.hpp
+components/Camera.o: /usr/include/glm/detail/type_half.inl
+components/Camera.o: /usr/include/glm/geometric.hpp
+components/Camera.o: /usr/include/glm/matrix.hpp
+components/Camera.o: /usr/include/glm/vector_relational.hpp
+components/Camera.o: /usr/include/glm/integer.hpp
+components/Camera.o: /usr/include/glm/detail/func_integer.inl
+components/Camera.o: /usr/include/glm/ext/vec1.hpp
+components/Camera.o: /usr/include/glm/detail/type_vec.hpp
+components/Camera.o: /usr/include/glm/detail/type_vec1.inl
+components/Camera.o: /usr/include/SFML/Window.hpp
+components/Camera.o: /usr/include/SFML/System.hpp
+components/Camera.o: /usr/include/SFML/Config.hpp
+components/Camera.o: /usr/include/SFML/System/Clock.hpp
+components/Camera.o: /usr/include/SFML/System/Export.hpp
+components/Camera.o: /usr/include/SFML/System/Time.hpp
+components/Camera.o: /usr/include/SFML/System/Err.hpp
+components/Camera.o: /usr/include/SFML/System/FileInputStream.hpp
+components/Camera.o: /usr/include/SFML/System/InputStream.hpp
+components/Camera.o: /usr/include/SFML/System/NonCopyable.hpp
+components/Camera.o: /usr/include/SFML/System/Lock.hpp
+components/Camera.o: /usr/include/SFML/System/MemoryInputStream.hpp
+components/Camera.o: /usr/include/SFML/System/Mutex.hpp
+components/Camera.o: /usr/include/SFML/System/Sleep.hpp
+components/Camera.o: /usr/include/SFML/System/String.hpp
+components/Camera.o: /usr/include/SFML/System/Utf.hpp
+components/Camera.o: /usr/include/SFML/System/Utf.inl
+components/Camera.o: /usr/include/SFML/System/String.inl
+components/Camera.o: /usr/include/SFML/System/Thread.hpp
+components/Camera.o: /usr/include/SFML/System/Thread.inl
+components/Camera.o: /usr/include/SFML/System/ThreadLocal.hpp
+components/Camera.o: /usr/include/SFML/System/ThreadLocalPtr.hpp
+components/Camera.o: /usr/include/SFML/System/ThreadLocalPtr.inl
+components/Camera.o: /usr/include/SFML/System/Vector2.hpp
+components/Camera.o: /usr/include/SFML/System/Vector2.inl
+components/Camera.o: /usr/include/SFML/System/Vector3.hpp
+components/Camera.o: /usr/include/SFML/System/Vector3.inl
+components/Camera.o: /usr/include/SFML/Window/Context.hpp
+components/Camera.o: /usr/include/SFML/Window/Export.hpp
+components/Camera.o: /usr/include/SFML/Window/GlResource.hpp
+components/Camera.o: /usr/include/SFML/Window/ContextSettings.hpp
+components/Camera.o: /usr/include/SFML/Window/Event.hpp
+components/Camera.o: /usr/include/SFML/Window/Joystick.hpp
+components/Camera.o: /usr/include/SFML/Window/Keyboard.hpp
+components/Camera.o: /usr/include/SFML/Window/Mouse.hpp
+components/Camera.o: /usr/include/SFML/Window/Sensor.hpp
+components/Camera.o: /usr/include/SFML/Window/Touch.hpp
+components/Camera.o: /usr/include/SFML/Window/VideoMode.hpp
+components/Camera.o: /usr/include/SFML/Window/Window.hpp
+components/Camera.o: /usr/include/SFML/Window/WindowHandle.hpp
+components/Camera.o: /usr/include/SFML/Window/WindowStyle.hpp
+components/Camera.o: /home/cipsi/Personal/opengl_framework/components/Component.hpp
 components/Texture.o: /home/cipsi/Personal/opengl_framework/components/Texture.hpp
 components/Texture.o: /usr/include/GL/glew.h /usr/include/stdint.h
 components/Texture.o: /usr/include/bits/libc-header-start.h
@@ -1486,8 +1934,17 @@ shaders/StaticShader.o: /usr/include/glm/integer.hpp
 shaders/StaticShader.o: /usr/include/glm/detail/func_integer.inl
 shaders/StaticShader.o: /usr/include/glm/ext/vec1.hpp
 shaders/StaticShader.o: /usr/include/glm/detail/type_vec.hpp
-shaders/StaticShader.o: /usr/include/glm/detail/type_vec1.inl Debug.hpp
-App.o: App.hpp /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp
+shaders/StaticShader.o: /usr/include/glm/detail/type_vec1.inl Light.hpp
+shaders/StaticShader.o: Debug.hpp
+App.o: /usr/include/GL/glew.h /usr/include/stdint.h
+App.o: /usr/include/bits/libc-header-start.h /usr/include/features.h
+App.o: /usr/include/stdc-predef.h /usr/include/sys/cdefs.h
+App.o: /usr/include/bits/wordsize.h /usr/include/bits/long-double.h
+App.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
+App.o: /usr/include/bits/typesizes.h /usr/include/bits/wchar.h
+App.o: /usr/include/bits/stdint-intn.h /usr/include/bits/stdint-uintn.h
+App.o: /usr/include/GL/glu.h /usr/include/GL/gl.h App.hpp
+App.o: /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp
 App.o: /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp
 App.o: /usr/include/SFML/System/Time.hpp /usr/include/SFML/System/Err.hpp
 App.o: /usr/include/SFML/System/FileInputStream.hpp
@@ -1521,14 +1978,6 @@ App.o: /usr/include/SFML/Window/Window.hpp
 App.o: /usr/include/SFML/Window/WindowHandle.hpp
 App.o: /usr/include/SFML/Window/WindowStyle.hpp Debug.hpp Resources.hpp
 App.o: /home/cipsi/Personal/opengl_framework/components/Texture.hpp
-App.o: /usr/include/GL/glew.h /usr/include/stdint.h
-App.o: /usr/include/bits/libc-header-start.h /usr/include/features.h
-App.o: /usr/include/stdc-predef.h /usr/include/sys/cdefs.h
-App.o: /usr/include/bits/wordsize.h /usr/include/bits/long-double.h
-App.o: /usr/include/gnu/stubs.h /usr/include/bits/types.h
-App.o: /usr/include/bits/typesizes.h /usr/include/bits/wchar.h
-App.o: /usr/include/bits/stdint-intn.h /usr/include/bits/stdint-uintn.h
-App.o: /usr/include/GL/glu.h /usr/include/GL/gl.h
 App.o: /home/cipsi/Personal/opengl_framework/components/Mesh.hpp Loader.hpp
 App.o: /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp
 App.o: /usr/include/glm/detail/setup.hpp /usr/include/glm/simd/platform.h
@@ -1596,10 +2045,11 @@ App.o: /home/cipsi/Personal/opengl_framework/components/Component.hpp
 App.o: systems/Renderer.hpp
 App.o: /home/cipsi/Personal/opengl_framework/entities/Entity.hpp
 App.o: /home/cipsi/Personal/opengl_framework/shaders/StaticShader.hpp
-App.o: /home/cipsi/Personal/opengl_framework/shaders/Shader.hpp
+App.o: /home/cipsi/Personal/opengl_framework/shaders/Shader.hpp Light.hpp
 App.o: systems/System.hpp
 App.o: /home/cipsi/Personal/opengl_framework/components/Transform.hpp
-App.o: systems/Transformer.hpp Camera.hpp
+App.o: systems/Transformer.hpp
+App.o: /home/cipsi/Personal/opengl_framework/components/Camera.hpp Input.hpp
 Loader.o: /usr/include/SFML/Graphics/Image.hpp
 Loader.o: /usr/include/SFML/Graphics/Export.hpp /usr/include/SFML/Config.hpp
 Loader.o: /usr/include/SFML/Graphics/Color.hpp
@@ -1683,3 +2133,40 @@ Loader.o: /usr/include/glm/detail/type_vec1.inl
 Loader.o: /home/cipsi/Personal/opengl_framework/components/Mesh.hpp
 Loader.o: /home/cipsi/Personal/opengl_framework/components/Texture.hpp
 Loader.o: Debug.hpp Utilities.hpp
+Loader.o: /home/cipsi/Personal/opengl_framework/components/Camera.hpp
+Loader.o: /usr/include/SFML/Window.hpp /usr/include/SFML/System.hpp
+Loader.o: /usr/include/SFML/System/Clock.hpp
+Loader.o: /usr/include/SFML/System/Export.hpp
+Loader.o: /usr/include/SFML/System/Time.hpp /usr/include/SFML/System/Err.hpp
+Loader.o: /usr/include/SFML/System/FileInputStream.hpp
+Loader.o: /usr/include/SFML/System/InputStream.hpp
+Loader.o: /usr/include/SFML/System/NonCopyable.hpp
+Loader.o: /usr/include/SFML/System/Lock.hpp
+Loader.o: /usr/include/SFML/System/MemoryInputStream.hpp
+Loader.o: /usr/include/SFML/System/Mutex.hpp
+Loader.o: /usr/include/SFML/System/Sleep.hpp
+Loader.o: /usr/include/SFML/System/String.hpp
+Loader.o: /usr/include/SFML/System/Utf.hpp /usr/include/SFML/System/Utf.inl
+Loader.o: /usr/include/SFML/System/String.inl
+Loader.o: /usr/include/SFML/System/Thread.hpp
+Loader.o: /usr/include/SFML/System/Thread.inl
+Loader.o: /usr/include/SFML/System/ThreadLocal.hpp
+Loader.o: /usr/include/SFML/System/ThreadLocalPtr.hpp
+Loader.o: /usr/include/SFML/System/ThreadLocalPtr.inl
+Loader.o: /usr/include/SFML/System/Vector3.hpp
+Loader.o: /usr/include/SFML/System/Vector3.inl
+Loader.o: /usr/include/SFML/Window/Context.hpp
+Loader.o: /usr/include/SFML/Window/Export.hpp
+Loader.o: /usr/include/SFML/Window/GlResource.hpp
+Loader.o: /usr/include/SFML/Window/ContextSettings.hpp
+Loader.o: /usr/include/SFML/Window/Event.hpp
+Loader.o: /usr/include/SFML/Window/Joystick.hpp
+Loader.o: /usr/include/SFML/Window/Keyboard.hpp
+Loader.o: /usr/include/SFML/Window/Mouse.hpp
+Loader.o: /usr/include/SFML/Window/Sensor.hpp
+Loader.o: /usr/include/SFML/Window/Touch.hpp
+Loader.o: /usr/include/SFML/Window/VideoMode.hpp
+Loader.o: /usr/include/SFML/Window/Window.hpp
+Loader.o: /usr/include/SFML/Window/WindowHandle.hpp
+Loader.o: /usr/include/SFML/Window/WindowStyle.hpp
+Loader.o: /home/cipsi/Personal/opengl_framework/components/Component.hpp

@@ -53,6 +53,10 @@ void System::ProcessComponents()
 void System::RegisterNewComponent(Component *component)
 {
     std::string systemTag = component->GetSystemTag();
+    if(systemTag == "None")
+    {
+        return;
+    }
     if(m_systems[systemTag])
     {
         m_systems[systemTag]->RegisterComponent(component);

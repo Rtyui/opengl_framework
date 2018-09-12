@@ -22,5 +22,5 @@ Component::~Component()
 std::string Component::GetSystemTag()
 {
     elog(E, "No override for function GetSystemTag in component with id %d", m_id);
-    return std::string("");
+    return std::string("None");
 }

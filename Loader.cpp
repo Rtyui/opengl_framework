@@ -23,12 +23,13 @@ Loader::~Loader()
     glDeleteTextures(m_textures.size(), m_textures.data());
 }
 
-Mesh* Loader::GetMesh(const std::vector<float> &positions, const std::vector<float> &textureCoords, const std::vector<int> &indices)
+Mesh* Loader::GetMesh(const std::vector<float> &positions, const std::vector<float> &textureCoords, const std::vector<float> &normals, const std::vector<int> &indices)
 {
     GLuint vaoId = GetNewVaoId();
     BindIndicesBuffer(indices);
     StoreDataInAttributeList(0, 3, positions);
     StoreDataInAttributeList(1, 2, textureCoords);
+    StoreDataInAttributeList(2, 3, normals);
     glBindVertexArray(0);
     return new Mesh(vaoId, indices.size());
 }
@@ -53,7 +54,7 @@ Texture* Loader::LoadTexture(const std::string &filename)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
-    return new Texture(textureId);
+    return new Texture(textureId, 10.f, 1.f);
 }
 
 GLuint Loader::GetNewVaoId()
@@ -164,7 +165,7 @@ Mesh* Loader::LoadObjModel(const std::string &filename)
         verticesArray[index++] = vec.z;
     }
 
-    return GetMesh(verticesArray, texturesArray, indices);
+    return GetMesh(verticesArray, texturesArray, normalsArray, indices);
 }
 
 void Loader::ProcessVertex(const std::vector<std::string> &verticesData,

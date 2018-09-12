@@ -16,6 +16,7 @@ public:
     Entity*                 m_entity;
 protected:
     int                     m_id;
+    std::string             m_systemTag;
 private:
     static int              lastId;
 

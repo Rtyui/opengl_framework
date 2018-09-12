@@ -30,7 +30,7 @@ public:
                             Loader();
                             ~Loader();
 
-    Mesh*                   GetMesh(const std::vector<float> &positions, const std::vector<float> &textureCoords, const std::vector<int> &indices);
+    Mesh*                   GetMesh(const std::vector<float> &positions, const std::vector<float> &textureCoords, const std::vector<float> &normals, const std::vector<int> &indices);
     Texture*                LoadTexture(const std::string &filename);
     Mesh*                   LoadObjModel(const std::string &filename);
 

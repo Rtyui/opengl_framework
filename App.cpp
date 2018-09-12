@@ -11,7 +11,7 @@
 #include "Transformer.hpp"
 #include "Camera.hpp"
 #include "Input.hpp"
-
+#include "Light.hpp"
 
 App::App()
 {
@@ -71,19 +71,29 @@ void App::Run()
     elog(I, "Running");
     m_running = true;
 
-    Mesh *mesh = g_resources->GetMesh("stall");
-    Texture *texture = g_resources->GetTexture("stallTexture");
+    Mesh *mesh = g_resources->GetMesh("dragon");
+    Texture *texture = g_resources->GetTexture("teal");
     Model *model = new Model(mesh, texture);
     Transform *transform = new Transform();
 
     Renderer *renderer = new Renderer();
     Transformer *transformer = new Transformer();
+    if(renderer && transformer)
+    {
+    }
 
-    Entity *entity = new Entity();
-    entity->AddComponent(model);
-    entity->AddComponent(transform);
+    Entity *object = new Entity("Object");
+    object->AddComponent(model);
+    object->AddComponent(transform);
 
+    Entity *cameraEntity = new Entity("CameraEntity");
     Camera *camera = new Camera();
+    Transform *cameraTransform = new Transform("None");
+    cameraEntity->AddComponent(camera);
+    cameraEntity->AddComponent(cameraTransform);
+
+    cameraTransform->position().y = 1.f;
+    cameraTransform->position().z = 10.f;
     
     while(m_running)
     {
@@ -98,7 +108,9 @@ void App::Run()
     }
 
     delete camera;
-    delete entity;
+    delete object;
+    delete cameraEntity;
+    //delete camera;
     System::DeleteAll();
 }
 

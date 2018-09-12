@@ -8,6 +8,7 @@
 #include "Entity.hpp"
 #include "StaticShader.hpp"
 #include "System.hpp"
+#include "Light.hpp"
 
 class Renderer : public System
 {
@@ -24,6 +25,7 @@ private:
 
     glm::mat4                               m_projectionMatrix;
     StaticShader*                           m_shader;
+    Light*                                  m_light;
     std::map<Mesh*, std::vector<Model*>>    m_models;
 
 // // // //

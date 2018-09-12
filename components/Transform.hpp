@@ -28,6 +28,7 @@ private:
 // // // //
 public:
                             Transform();
+                            Transform(const std::string &systemTag);
                             ~Transform();
     void                    UpdateMatrix();
     std::string             GetSystemTag() override;

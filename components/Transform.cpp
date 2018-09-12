@@ -5,9 +5,19 @@
 /* Static includes */
 #include "Transform.hpp"
 
-Transform::Transform() : m_position(glm::vec3(0.f, 0.f, 0.f)), m_rotation(glm::vec3(0.f, 0.f, 0.f)), m_scale(glm::vec3(1.f, 1.f, 1.f))
+Transform::Transform() : m_position(glm::vec3(0.f, 0.f, 0.f)),
+m_rotation(glm::vec3(0.f, 0.f, 0.f)),
+m_scale(glm::vec3(1.f, 1.f, 1.f))
 {
     UpdateMatrix();
+    m_systemTag = "Transformer";
+}
+
+Transform::Transform(const std::string &systemTag) : m_position(glm::vec3(0.f, 0.f, 0.f)),
+m_rotation(glm::vec3(0.f, 0.f, 0.f)),
+m_scale(glm::vec3(1.f, 1.f, 1.f))
+{
+    m_systemTag = systemTag;
 }
 
 Transform::~Transform()
@@ -26,5 +36,5 @@ void Transform::UpdateMatrix()
 
 std::string Transform::GetSystemTag()
 {
-    return std::string("Transformer");
+    return m_systemTag;
 }
